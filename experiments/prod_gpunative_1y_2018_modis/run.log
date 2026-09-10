@@ -1,0 +1,92 @@
+/home/qixiang/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+completed_step=480/17520 elapsed_seconds=79.5
+completed_step=960/17520 elapsed_seconds=158.7
+completed_step=1440/17520 elapsed_seconds=237.9
+completed_step=1920/17520 elapsed_seconds=317.1
+completed_step=2400/17520 elapsed_seconds=396.2
+completed_step=2880/17520 elapsed_seconds=482.2
+completed_step=3360/17520 elapsed_seconds=561.2
+completed_step=3840/17520 elapsed_seconds=640.1
+completed_step=4320/17520 elapsed_seconds=719.2
+completed_step=4800/17520 elapsed_seconds=798.3
+completed_step=5280/17520 elapsed_seconds=891.0
+completed_step=5760/17520 elapsed_seconds=970.2
+completed_step=6240/17520 elapsed_seconds=1058.6
+completed_step=6720/17520 elapsed_seconds=1170.4
+completed_step=7200/17520 elapsed_seconds=1254.1
+completed_step=7680/17520 elapsed_seconds=1351.7
+completed_step=8160/17520 elapsed_seconds=1451.1
+completed_step=8640/17520 elapsed_seconds=1555.2
+completed_step=9120/17520 elapsed_seconds=1643.2
+completed_step=9600/17520 elapsed_seconds=1749.6
+completed_step=10080/17520 elapsed_seconds=1878.2
+completed_step=10560/17520 elapsed_seconds=1965.9
+completed_step=11040/17520 elapsed_seconds=2046.0
+completed_step=11520/17520 elapsed_seconds=2126.2
+completed_step=12000/17520 elapsed_seconds=2206.3
+completed_step=12480/17520 elapsed_seconds=2286.5
+completed_step=12960/17520 elapsed_seconds=2366.7
+completed_step=13440/17520 elapsed_seconds=2446.9
+completed_step=13920/17520 elapsed_seconds=2527.2
+completed_step=14400/17520 elapsed_seconds=2607.4
+completed_step=14880/17520 elapsed_seconds=2687.5
+completed_step=15360/17520 elapsed_seconds=2767.5
+completed_step=15840/17520 elapsed_seconds=2847.5
+completed_step=16320/17520 elapsed_seconds=2927.7
+completed_step=16800/17520 elapsed_seconds=3007.8
+completed_step=17280/17520 elapsed_seconds=3087.9
+completed_step=17520/17520 elapsed_seconds=3127.9 (terminal)
+{
+  "nvalid": 97709,
+  "nsteps": 17520,
+  "device": "cuda",
+  "cpu_threads": null,
+  "nan": false,
+  "nonfinite_fields": [],
+  "output_enabled": true,
+  "saved_steps": [
+    480,
+    960,
+    1440,
+    1920,
+    2400,
+    2880,
+    3360,
+    3840,
+    4320,
+    4800,
+    5280,
+    5760,
+    6240,
+    6720,
+    7200,
+    7680,
+    8160,
+    8640,
+    9120,
+    9600,
+    10080,
+    10560,
+    11040,
+    11520,
+    12000,
+    12480,
+    12960,
+    13440,
+    13920,
+    14400,
+    14880,
+    15360,
+    15840,
+    16320,
+    16800,
+    17280,
+    17520
+  ],
+  "output_stride": 480,
+  "setup_seconds": 26.19719410687685,
+  "integration_seconds": 3127.8866689484566,
+  "modis_targets": "/data/yangjinhui/surf_pytorch/surf_paper/observations/modis_cmg/modis_cmg_2018_cmfd_columns.nc",
+  "modis_observables": "/data/yangjinhui/surf_pytorch/surf_paper/experiments/prod_gpunative_1y_2018_modis/surf_modis_observables.nc"
+}

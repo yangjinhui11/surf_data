@@ -1,0 +1,51 @@
+/home/qixiang/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data/yangjinhui/surf_pytorch/cmfd_offline_runner/modis_structural_closure.py:211: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  + [float(wind_log.exp()), float(sw_log.exp())])
+{"iteration": 0, "loss": 685.913, "controls": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0], "subset_rmse": {"day": 6.889, "night": 4.633}, "elapsed_s": 73.5}
+{"iteration": 1, "loss": 685.913, "controls": [0.0, 0.15, -0.15, 0.15, 0.15, 0.15, -0.15, -0.15, 0.9802, 1.0], "subset_rmse": {"day": 6.889, "night": 4.633}, "elapsed_s": 188.1}
+{"iteration": 2, "loss": 672.4465, "controls": [0.0, 0.281, -0.1987, 0.2999, 0.2979, 0.2989, -0.2994, -0.3001, 0.9612, 1.0], "subset_rmse": {"day": 6.8, "night": 4.619}, "elapsed_s": 302.5}
+{"iteration": 3, "loss": 660.151, "controls": [0.0, 0.404, -0.1552, 0.4496, 0.4371, 0.4486, -0.4434, -0.4456, 0.9424, 1.0], "subset_rmse": {"day": 6.713, "night": 4.612}, "elapsed_s": 416.6}
+{"iteration": 4, "loss": 646.8437, "controls": [0.0, 0.517, -0.0764, 0.5989, 0.5765, 0.5985, -0.5846, -0.5885, 0.9239, 1.0], "subset_rmse": {"day": 6.622, "night": 4.598}, "elapsed_s": 531.4}
+{"iteration": 5, "loss": 634.3747, "controls": [0.0, 0.6132, -0.0341, 0.7478, 0.7183, 0.7472, -0.7258, -0.7315, 0.906, 1.0], "subset_rmse": {"day": 6.534, "night": 4.587}, "elapsed_s": 645.3}
+{"iteration": 6, "loss": 622.9462, "controls": [0.0, 0.7058, -0.0036, 0.8963, 0.86, 0.8955, -0.8676, -0.8736, 0.8888, 1.0], "subset_rmse": {"day": 6.452, "night": 4.578}, "elapsed_s": 759.4}
+{"iteration": 7, "loss": 611.7392, "controls": [0.0, 0.8058, 0.0507, 1.044, 1.0027, 1.0409, -1.0036, -1.0124, 0.8723, 1.0], "subset_rmse": {"day": 6.37, "night": 4.57}, "elapsed_s": 873.9}
+{"iteration": 8, "loss": 601.1543, "controls": [0.0, 0.9089, 0.1162, 1.1911, 1.1456, 1.184, -1.1361, -1.1474, 0.8565, 1.0], "subset_rmse": {"day": 6.289, "night": 4.564}, "elapsed_s": 988.8}
+{"iteration": 9, "loss": 590.7533, "controls": [0.0, 1.0028, 0.2097, 1.3373, 1.2892, 1.3235, -1.2652, -1.2798, 0.8414, 1.0], "subset_rmse": {"day": 6.21, "night": 4.557}, "elapsed_s": 1103.0}
+{"iteration": 10, "loss": 581.1931, "controls": [0.0, 1.0687, 0.3045, 1.4825, 1.4336, 1.4614, -1.3917, -1.4074, 0.827, 1.0], "subset_rmse": {"day": 6.135, "night": 4.553}, "elapsed_s": 1217.8}
+{"iteration": 11, "loss": 571.7914, "controls": [0.0, 1.1288, 0.4085, 1.6269, 1.5781, 1.5985, -1.516, -1.531, 0.8132, 1.0], "subset_rmse": {"day": 6.064, "night": 4.544}, "elapsed_s": 1331.5}
+{"iteration": 12, "loss": 562.6744, "controls": [0.0, 1.1849, 0.5192, 1.77, 1.725, 1.7412, -1.6315, -1.6537, 0.8028, 1.0], "subset_rmse": {"day": 5.995, "night": 4.535}, "elapsed_s": 1445.0}
+{"iteration": 13, "loss": 553.8521, "controls": [0.0, 1.2362, 0.5485, 1.9117, 1.8688, 1.8806, -1.7387, -1.7767, 0.7929, 1.0], "subset_rmse": {"day": 5.929, "night": 4.524}, "elapsed_s": 1559.5}
+{"iteration": 14, "loss": 546.1356, "controls": [0.0, 1.2864, 0.5631, 2.0522, 2.0099, 2.0161, -1.8384, -1.8947, 0.7833, 1.0], "subset_rmse": {"day": 5.867, "night": 4.518}, "elapsed_s": 1677.1}
+{"iteration": 15, "loss": 538.6806, "controls": [0.0, 1.3258, 0.5858, 2.191, 2.1532, 2.1519, -1.9484, -2.0071, 0.775, 1.0], "subset_rmse": {"day": 5.808, "night": 4.511}, "elapsed_s": 1793.7}
+{"iteration": 16, "loss": 531.7806, "controls": [0.0, 1.3581, 0.5996, 2.3283, 2.2797, 2.2842, -2.0514, -2.1128, 0.7671, 1.0], "subset_rmse": {"day": 5.752, "night": 4.506}, "elapsed_s": 1909.2}
+{"iteration": 17, "loss": 525.6644, "controls": [0.0, 1.4371, 0.642, 2.4629, 2.4149, 2.4228, -2.1704, -2.2106, 0.7596, 1.0], "subset_rmse": {"day": 5.702, "night": 4.501}, "elapsed_s": 2024.6}
+{"iteration": 18, "loss": 519.8814, "controls": [0.0, 1.5122, 0.6882, 2.5971, 2.4603, 2.5564, -2.2795, -2.2995, 0.7534, 1.0], "subset_rmse": {"day": 5.652, "night": 4.499}, "elapsed_s": 2140.2}
+{"iteration": 19, "loss": 514.5654, "controls": [0.0, 1.5783, 0.7594, 2.7238, 2.5151, 2.6841, -2.3795, -2.3796, 0.7479, 1.0], "subset_rmse": {"day": 5.606, "night": 4.496}, "elapsed_s": 2256.2}
+{"iteration": 20, "loss": 509.9859, "controls": [0.0, 1.6324, 0.8319, 2.8488, 2.5753, 2.8087, -2.4697, -2.4507, 0.7428, 1.0], "subset_rmse": {"day": 5.566, "night": 4.493}, "elapsed_s": 2372.6}
+{"iteration": 21, "loss": 505.2211, "controls": [0.0, 1.6797, 0.9112, 2.9719, 2.6404, 2.9303, -2.5521, -2.5116, 0.7381, 1.0], "subset_rmse": {"day": 5.526, "night": 4.49}, "elapsed_s": 2488.2}
+{"iteration": 22, "loss": 500.8716, "controls": [0.0, 1.7321, 0.9935, 3.0929, 2.7102, 3.0494, -2.6281, -2.5633, 0.7338, 1.0], "subset_rmse": {"day": 5.488, "night": 4.487}, "elapsed_s": 2603.6}
+{"iteration": 23, "loss": 496.6595, "controls": [0.0, 1.788, 1.0744, 3.2119, 2.7839, 3.167, -2.6981, -2.6062, 0.7299, 1.0], "subset_rmse": {"day": 5.452, "night": 4.483}, "elapsed_s": 2719.0}
+{"iteration": 24, "loss": 492.6197, "controls": [0.0, 1.8386, 1.168, 3.3287, 2.8611, 3.2828, -2.7625, -2.6405, 0.7264, 1.0], "subset_rmse": {"day": 5.418, "night": 4.479}, "elapsed_s": 2834.0}
+{"iteration": 25, "loss": 488.7593, "controls": [0.0, 1.9291, 1.1119, 3.4429, 2.942, 3.3967, -2.818, -2.6717, 0.7231, 1.0], "subset_rmse": {"day": 5.383, "night": 4.477}, "elapsed_s": 2947.4}
+{"iteration": 26, "loss": 485.9601, "controls": [0.0, 2.013, 1.0252, 3.5616, 3.016, 3.5192, -2.8678, -2.6945, 0.7196, 1.0], "subset_rmse": {"day": 5.358, "night": 4.475}, "elapsed_s": 3060.6}
+{"iteration": 27, "loss": 482.8934, "controls": [0.0, 2.0902, 0.9483, 3.6772, 3.0935, 3.6369, -2.9117, -2.7103, 0.7166, 1.0], "subset_rmse": {"day": 5.331, "night": 4.473}, "elapsed_s": 3173.8}
+{"iteration": 28, "loss": 480.4552, "controls": [0.0, 2.1623, 0.8807, 3.7893, 3.1731, 3.7505, -2.9511, -2.7168, 0.7142, 1.0], "subset_rmse": {"day": 5.305, "night": 4.476}, "elapsed_s": 3287.3}
+{"iteration": 29, "loss": 477.9589, "controls": [0.0, 2.2278, 0.7958, 3.8975, 3.2544, 3.8601, -2.9854, -2.7152, 0.7123, 1.0], "subset_rmse": {"day": 5.283, "night": 4.474}, "elapsed_s": 3400.5}
+{"iteration": 30, "loss": 475.8418, "controls": [0.0, 2.2881, 0.723, 4.0019, 3.338, 3.9669, -3.015, -2.7062, 0.7109, 1.0], "subset_rmse": {"day": 5.265, "night": 4.471}, "elapsed_s": 3514.0}
+{"iteration": 31, "loss": 473.9128, "controls": [0.0, 2.3441, 0.6575, 4.1026, 3.4221, 4.0712, -3.0389, -2.6901, 0.7102, 1.0], "subset_rmse": {"day": 5.248, "night": 4.468}, "elapsed_s": 3627.6}
+{"iteration": 32, "loss": 472.1354, "controls": [0.0, 2.395, 0.603, 4.1991, 3.5094, 4.1735, -3.0586, -2.6672, 0.7099, 1.0], "subset_rmse": {"day": 5.234, "night": 4.465}, "elapsed_s": 3741.3}
+{"iteration": 33, "loss": 470.6261, "controls": [0.0, 2.4413, 0.5514, 4.2919, 3.5991, 4.2748, -3.0743, -2.6384, 0.7098, 1.0], "subset_rmse": {"day": 5.223, "night": 4.46}, "elapsed_s": 3855.0}
+{"iteration": 34, "loss": 469.1901, "controls": [0.0, 2.4838, 0.5077, 4.3811, 3.6907, 4.3756, -3.086, -2.6044, 0.71, 1.0], "subset_rmse": {"day": 5.212, "night": 4.456}, "elapsed_s": 3968.4}
+{"iteration": 35, "loss": 467.5141, "controls": [0.0, 2.5231, 0.4715, 4.4667, 3.7839, 4.4756, -3.0943, -2.5659, 0.7105, 1.0], "subset_rmse": {"day": 5.2, "night": 4.451}, "elapsed_s": 4081.7}
+{"iteration": 36, "loss": 466.0924, "controls": [0.0, 2.5594, 0.45, 4.5486, 3.8789, 4.5751, -3.0997, -2.524, 0.7114, 1.0], "subset_rmse": {"day": 5.19, "night": 4.446}, "elapsed_s": 4195.1}
+{"iteration": 37, "loss": 464.7008, "controls": [0.0, 2.5926, 0.4362, 4.627, 3.9749, 4.6744, -3.1026, -2.4793, 0.7127, 1.0], "subset_rmse": {"day": 5.18, "night": 4.442}, "elapsed_s": 4308.3}
+{"iteration": 38, "loss": 463.7079, "controls": [0.0, 2.6218, 0.4378, 4.7002, 4.0703, 4.7728, -3.1036, -2.4326, 0.7142, 1.0], "subset_rmse": {"day": 5.175, "night": 4.436}, "elapsed_s": 4421.5}
+{"iteration": 39, "loss": 462.6392, "controls": [0.0, 2.6488, 0.445, 4.7705, 4.1682, 4.8711, -3.1034, -2.3842, 0.7162, 1.0], "subset_rmse": {"day": 5.169, "night": 4.431}, "elapsed_s": 4534.7}
+{"iteration": 40, "loss": 461.6457, "controls": [0.0, 2.6757, 0.46, 4.8378, 4.2665, 4.9689, -3.1013, -2.3346, 0.7186, 1.0], "subset_rmse": {"day": 5.164, "night": 4.425}, "elapsed_s": 4648.1}
+{"eval": "baseline_calibration", "summary": {"day": {"n": 73700, "bias_K": -5.48244672897678, "rmse_K": 7.44618185132911}, "night": {"n": 15491, "bias_K": -0.4276929741484164, "rmse_K": 3.833792345901801}}}
+{"eval": "baseline_validation", "summary": {"day": {"n": 131030, "bias_K": -8.28158033791611, "rmse_K": 11.34224846986844}, "night": {"n": 62077, "bias_K": 1.0723567427742708, "rmse_K": 4.348703028534915}}}
+{"eval": "optimized_calibration", "summary": {"day": {"n": 73700, "bias_K": -1.44174576292793, "rmse_K": 5.1129361435361265}, "night": {"n": 15491, "bias_K": -1.0721890814677009, "rmse_K": 3.6660155257866545}}}
+{"eval": "optimized_validation", "summary": {"day": {"n": 131030, "bias_K": -3.9705449877446983, "rmse_K": 8.594616510433355}, "night": {"n": 62077, "bias_K": 0.2683984963893524, "rmse_K": 3.6550966330351002}}}
+{"done": "/data/yangjinhui/surf_pytorch/surf_paper/experiments/structural_result.json"}

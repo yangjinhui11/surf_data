@@ -1,0 +1,68 @@
+\section{Transfer of the surface-layer closure to the Fortran reference}
+\label{app:fortran-slab}
+
+The closure of Sect.~\ref{sec:structural-slab} acts on physical,
+grid-computed quantities only, the surface sensible heat flux and the
+air temperature entering the surface exchange, and is therefore not
+tied to the differentiable implementation. This appendix documents its
+transfer to the Fortran offline driver of the reference code base and the
+bitwise invariance of the inactive closure and its transfer.
+
+\subsection{Implementation in the offline driver}
+
+The recurrence is added to the driver level (\texttt{cpg1s.F90}), outside the
+SURF physics itself, in four changes: (i)~a persistent anomaly array
+per grid point; (ii)~immediately before each call to the SURF physics, the
+lowest-level air temperature argument at the incoming time level is
+incremented by the anomaly, and the increment is removed again after the
+call; (iii)~the anomaly is advanced with the
+identical discretization as Eq.~(\ref{eq:slab}),
+$\Delta T_{n+1} = \beta_n \Delta T_n + (1-\beta_n)(-\lambda_s H_n)$, with the
+shortwave-blended per-step relaxation factor $\beta_n$ evaluated from the
+driver's own surface downward shortwave argument, and $H_n$
+the grid-mean surface sensible heat flux of the step just completed
+(tile-fraction weighted, downward positive, the same quantity the torch
+model differentiates through, exported from the vertical-diffusion
+interface of the reference physics); and (iv)~environment-variable switches
+with compiled-in defaults $\lambda_s = 0$ and the tied timescale, so the
+unmodified driver behaviour is the compiled-in default. The constants are
+shared with the torch implementation
+($\rho c_p = 1.2\times1005.7$~J\,m$^{-3}$\,K$^{-1}$,
+$S_{ref} = 50$~W\,m$^{-2}$, $\Delta t = 1800$~s), and the update ordering
+matches: the anomaly applied at step $n{+}1$ is built from the flux and
+shortwave of step $n$.
+
+\subsection{Bitwise invariance of the inactive closure}
+
+With $\lambda_s = 0$ the patch must be numerically invisible. A one-day
+integration of the patched executable (48 steps, 97\,709 columns) was
+compared record by record against an archive produced by the unpatched
+executable from the same restart and forcing: all 24 output variables of
+the 3-hourly history file agree bitwise, and the run log confirms the
+closure inactive ($\lambda_s = 0$ reported at initialization).
+
+\subsection{Matched-protocol evaluation}
+
+All Fortran evaluations use year-long integrations started from the common
+spun-up restart of Sect.~\ref{sec:modis-evaluation}; the calibrated
+constants of the torch configuration ($\lambda_s =
+0.05$~K\,(W\,m$^{-2}$)$^{-1}$, $\tau_{\mathrm{day}} = 6$~h,
+$\tau_{\mathrm{night}} = 3$~h) enter the driver through its environment
+switches without re-tuning. Because the driver history is 3-hourly, the
+Fortran runs and a re-sampled torch evaluation sample the nearest
+3-hourly record at each MODIS view time; the observation operator is the
+driver's grid-mean skin temperature (\texttt{AvgSurfT}), which is by
+construction the same tile-fraction-weighted mean as the torch
+\emph{radiative skin temperature}. Under this matched protocol the
+year-long unpatched Fortran integration and the torch integration of the
+prior configuration agree to within $0.001$~K in bias and RMSE in all four
+window--pass combinations (e.g.\ held-out day bias $-8.068$ versus
+$-8.068$~K, RMSE $11.217$ versus $11.218$~K), so the MODIS error
+statistics of the two implementations are indistinguishable at this
+protocol before the closure is activated. What is verified to date is the
+numerical fidelity of the transfer (bitwise invariance of the inactive
+closure) and the indistinguishability of the prior statistics; full-year
+Fortran statistics of the calibrated configuration ($\lambda_s = 0.05$,
+$\tau_{\mathrm{day}} = 6$~h, $\tau_{\mathrm{night}} = 3$~h) are not yet
+available and are not anticipated here. All conclusions of
+Sect.~\ref{sec:structural-slab} rest on the torch implementation.

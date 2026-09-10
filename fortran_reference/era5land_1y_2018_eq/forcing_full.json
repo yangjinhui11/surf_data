@@ -1,0 +1,7 @@
+{
+  "year": 2018,
+  "ntime": 2920,
+  "next_records": "wrap",
+  "ncol": 97709,
+  "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_1y_2018_eq/forcing_full"
+}

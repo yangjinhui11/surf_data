@@ -1,0 +1,45 @@
+/home/qixiang/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/data/yangjinhui/surf_pytorch/cmfd_offline_runner/modis_slab_maps.py:102: RuntimeWarning: invalid value encountered in cast
+  return np.clip(np.rint(view_hours / 3.0).astype(int) - 1, 0, STEPS_PER_DAY // THREE_H_STEPS - 1)
+{"lambda": 0.0, "window": "calibration", "day": 271, "elapsed_s": 17.7}
+{"lambda": 0.0, "window": "calibration", "day": 281, "elapsed_s": 34.7}
+{"lambda": 0.0, "window": "calibration", "day": 291, "elapsed_s": 51.8}
+{"lambda": 0.0, "window": "calibration", "day": 301, "elapsed_s": 68.9}
+{"lambda": 0.0, "window": "calibration", "day": 311, "elapsed_s": 86.0}
+{"lambda": 0.0, "window": "calibration", "day": 321, "elapsed_s": 102.9}
+{"lambda": 0.0, "window": "calibration", "day": 331, "elapsed_s": 120.0}
+{"lambda": 0.0, "window": "calibration", "day": 341, "elapsed_s": 137.1}
+{"lambda": 0.0, "window": "calibration", "day": 351, "elapsed_s": 154.0}
+{"lambda": 0.0, "window": "calibration", "day": 361, "elapsed_s": 171.1}
+{"lambda": 0.0, "window": "validation", "day": 91, "elapsed_s": 188.4}
+{"lambda": 0.0, "window": "validation", "day": 101, "elapsed_s": 205.6}
+{"lambda": 0.0, "window": "validation", "day": 111, "elapsed_s": 222.7}
+{"lambda": 0.0, "window": "validation", "day": 121, "elapsed_s": 239.7}
+{"lambda": 0.0, "window": "validation", "day": 131, "elapsed_s": 256.7}
+{"lambda": 0.0, "window": "validation", "day": 141, "elapsed_s": 273.6}
+{"lambda": 0.0, "window": "validation", "day": 151, "elapsed_s": 290.6}
+{"lambda": 0.0, "window": "validation", "day": 161, "elapsed_s": 307.5}
+{"lambda": 0.0, "window": "validation", "day": 171, "elapsed_s": 324.4}
+{"lambda": 0.0, "window": "validation", "day": 181, "elapsed_s": 341.4}
+{"lambda": 0.05, "window": "calibration", "day": 271, "elapsed_s": 358.3}
+{"lambda": 0.05, "window": "calibration", "day": 281, "elapsed_s": 375.2}
+{"lambda": 0.05, "window": "calibration", "day": 291, "elapsed_s": 392.2}
+{"lambda": 0.05, "window": "calibration", "day": 301, "elapsed_s": 409.2}
+{"lambda": 0.05, "window": "calibration", "day": 311, "elapsed_s": 426.0}
+{"lambda": 0.05, "window": "calibration", "day": 321, "elapsed_s": 442.9}
+{"lambda": 0.05, "window": "calibration", "day": 331, "elapsed_s": 459.8}
+{"lambda": 0.05, "window": "calibration", "day": 341, "elapsed_s": 476.8}
+{"lambda": 0.05, "window": "calibration", "day": 351, "elapsed_s": 493.7}
+{"lambda": 0.05, "window": "calibration", "day": 361, "elapsed_s": 510.7}
+{"lambda": 0.05, "window": "validation", "day": 91, "elapsed_s": 527.5}
+{"lambda": 0.05, "window": "validation", "day": 101, "elapsed_s": 544.4}
+{"lambda": 0.05, "window": "validation", "day": 111, "elapsed_s": 561.3}
+{"lambda": 0.05, "window": "validation", "day": 121, "elapsed_s": 578.3}
+{"lambda": 0.05, "window": "validation", "day": 131, "elapsed_s": 595.4}
+{"lambda": 0.05, "window": "validation", "day": 141, "elapsed_s": 612.4}
+{"lambda": 0.05, "window": "validation", "day": 151, "elapsed_s": 629.4}
+{"lambda": 0.05, "window": "validation", "day": 161, "elapsed_s": 646.4}
+{"lambda": 0.05, "window": "validation", "day": 171, "elapsed_s": 663.5}
+{"lambda": 0.05, "window": "validation", "day": 181, "elapsed_s": 680.5}
+{"done": "/data/yangjinhui/surf_pytorch/surf_paper/experiments/slab_maps_gpunative/slab_maps.json", "elapsed_s": 683.6}

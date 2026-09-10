@@ -1,0 +1,340 @@
+\documentclass[gmd, manuscript]{copernicus}
+
+\begin{document}
+
+\title{A differentiable PyTorch implementation of the OpenIFS land-surface physics}
+
+\Author[1]{Jinhui}{Yang}
+\Author[1][wjzhao@nudt.edu.cn]{WenJing}{Zhao}
+\Author[2]{Xiumin}{Lin}
+\Author[1]{Congyuan}{Li}
+\Author[1]{Junqiang}{Song}
+
+\affil[1]{College of Meteorology and Oceanography, National University of Defense Technology, Changsha, China}
+\affil[2]{College of Computer Science and Technology, National University of Defense Technology, Changsha, China}
+
+\runningtitle{Differentiable OpenIFS land-surface physics}
+\runningauthor{Yang et al.}
+
+\received{}
+\pubdiscuss{}
+\revised{}
+\accepted{}
+\published{}
+
+\firstpage{1}
+
+\maketitle
+
+\begin{abstract}
+Land-surface schemes are mature in process content but are written in
+Fortran, confining parameter and sensitivity studies to ensembles of
+independent integrations. We present a differentiable PyTorch implementation
+of the complete OpenIFS SURF land-surface physics that preserves the tiled
+process ordering of the Fortran reference and keeps every conditional regime
+switch unsmoothed, so the differentiated operator is the verified one. It
+matches the reference at every duration tested: a 30-day controlled
+integration of the 97,709-column CMFD domain ends at surface-temperature and
+snow-water-equivalent RMSE of $6.90\times10^{-6}$~K and
+$1.05\times10^{-6}$~kg~m$^{-2}$; a one-year autonomous integration holds
+terminal relative errors below $5.1\times10^{-3}$~\% with the annual water
+budget closed to $5.90\times10^{-12}$~kg~m$^{-2}$; and ten successively
+restarted years (2009--2018) show no error growth. CUDA-graph execution on
+an NVIDIA A100 sustains a 3.8-fold speed-up over the 32-thread Fortran
+reference.
+
+The value of differentiability, however, is not speed but closing the loop
+between satellite observations and the process formulation, with a control
+at every step. Against independent Terra MODIS observations the
+configuration reproduces nighttime land surface temperature (bias 0.66~K)
+but carries a $-6.4$~K daytime cold bias. Using reverse-mode derivatives
+verified against finite differences to $4\times10^{-4}$, we decompose this
+bias under the same observations. An observation-space information analysis
+identifies the well-conditioned training season (condition number 67 in
+autumn--winter versus $2.96\times10^{5}$ in spring--summer), and a
+synthetic-twin control under the identical operator and optimizer recovers
+imposed parameters to 0.3--1.1~\%; with the inversion machinery so
+certified, the same calibration against real observations removes only about
+0.5~K of the 5.5--8.3~K daytime offset: a bound on the tested eight-scale
+control space, not a general verdict on parameter optimization, which
+remains complementary to the structural correction developed next.
+Diagnosed from the forcing side, the residual bias projects onto a
+ten-control pseudo-forcing profile: an $8.1$~K peak-to-peak deficit of
+near-surface diurnal amplitude whose sign changes within the day, a
+functional form that no time-constant parameter scale can represent. Read
+as a diagnosis of the offline atmosphere--surface exchange rather than as a
+correction of the forcing data, the profile guides the design and
+calibration of a two-timescale surface-layer closure. State-space verification rejects the freely trained optimum, which
+resonates with a dawn-time sensible-heat limit cycle invisible to
+quality-controlled observation scores; the adopted configuration rests on
+the verified stability boundary and removes 67--84~\% of the daytime bias
+(calibration to held-out) in every month of the year. Expressed only in the
+surface sensible heat flux and the exchange air temperature, the closure
+ports back to the Fortran driver without re-tuning, and a Fortran-guided
+retrieval reduces a prescribed 5.0~kg~m$^{-2}$ soil-water bias to
+0.170~kg~m$^{-2}$. These results show how a differentiable land surface
+moves evaluation beyond numerical fidelity to observation-constrained
+process improvement.
+\end{abstract}
+
+\copyrightstatement{TEXT}
+
+\introduction
+
+\input{sections/introduction}
+
+\input{sections/model_equations}
+
+\input{sections/fortran_torch_equivalence}
+
+\input{sections/multiyear_equivalence}
+
+\clearpage
+\input{sections/differentiability_and_calibration}
+
+\clearpage
+\input{sections/modis_observational_evaluation}
+
+\input{sections/computational_performance}
+
+\section{Discussion}
+
+The controlled boundary-driven integration isolates the numerical translation of the SURF process
+sequence from the construction of atmospheric lower-boundary quantities. The
+annual autonomous experiment complements that test by exercising the
+standalone roughness and surface-layer exchange closure under a realistic,
+continuously varying forcing
+record. These experiments are complementary: the 30-day case tests the
+translated SURF process sequence under fixed boundaries, whereas the annual
+case tests
+the complete offline pathway. Over a long nonlinear integration, floating-point round-off can be
+amplified when an evolving column approaches a thresholded snow, wetness, or
+surface-layer regime. The small annual domain-wide errors nevertheless show
+that such perturbations remain limited for the evaluated CMFD trajectory.
+
+The offline closure is required only when SURF is driven outside an atmospheric
+model. In a coupled OpenIFS application, the roughness and surface-layer
+exchange quantities are supplied
+through the atmospheric-physics interface, so the translated SURF process
+sequence uses the corresponding external-boundary path. This separation makes the reported
+verification relevant both to a standalone land-surface workflow and to the
+coupled application for which SURF was originally designed.
+
+Several qualifications define the scope of these results. The Fortran--Torch
+CMFD experiment tests numerical consistency, whereas the MODIS comparison
+provides an independent but configuration-dependent evaluation of surface
+temperature and snow cover. The initial state,
+static fields, forcing interpolation, and snow configuration are shared by
+the two implementations. Agreement therefore demonstrates consistency of the
+numerical pathway under those conditions, not uniqueness or physical
+optimality of the state. The annual autonomous comparison also
+contains the independently reconstructed offline surface-layer closure, so its
+small residuals combine round-off effects, threshold activation, and any
+closure-level differences. For this reason, the controlled boundary-driven integration is the
+primary evidence for the SURF translation, while the autonomous integration
+is
+evidence for stability of the complete offline workflow. The annual water
+budget closes at numerical precision. The reported surface-energy residual is
+instead a diagnostic of the staged discrete solve and is not interpreted as a
+prognostic conservation residual. The MODIS daytime contrast and snow-cover
+underestimation show that numerical agreement does not remove forcing,
+initialization, or parameterization error. A longer multi-year protocol should
+use seasonally matched land analyses and additional in situ water and energy
+flux observations.
+
+The differentiable translation and a learned emulator address the same
+interface from opposite directions. The aiLand v1 emulator of the companion
+ecLand scheme \citep{Raoult2026aiLand} approximates the IFS land-surface
+lineage with a multi-layer perceptron: pre-trained on ecLand offline
+integrations, it reproduces the prognostic soil state with a 90-day RMSE of
+1.19~K, remains stable over continuous four-year autoregressive
+integrations, and is then fine-tuned against FLUXNET flux observations,
+reducing latent and sensible heat-flux RMSE by 30 and 20~\% at independent
+towers. The derivative of such a surrogate, however, is the derivative of a
+one-kelvin approximation of the physics, not of the physics itself, and its
+observational gains are absorbed into network weights that map back to
+neither physical parameters nor the process formulation. The path taken
+here is complementary: derivatives point at the operational physics, so
+observation constraints land on physical parameter tables and on the design
+of the surface-layer closure, and the resulting correction ports back to
+the Fortran reference without re-tuning. Emulators and differentiable
+physics translations are natural partners: the former for inexpensive
+ensembles and assimilation acceleration, the latter for mechanism
+diagnosis, parameter estimation, and structural correction.
+
+The observation-space workflow of Sect.~\ref{sec:modis-evaluation} closes
+the loop between diagnosis and process change. The gradient-based
+experiments of Appendix~\ref{app:modis-calibration} show that automatic
+differentiation supplies efficient derivatives, but experiment design and
+seasonal state diversity determine whether those derivatives carry
+independent parameter information; the calibration then quantifies the
+parameter-explained fraction of the misfit (about $0.5$~K of the
+$5.5$--$8.3$~K daytime cold offset) and attributes the remainder to the
+missing near-surface diurnal amplitude of the offline exchange, which the
+two-timescale surface-layer closure largely supplies. The bound is
+deliberately scoped: it covers neither heterogeneous static fields such as
+soil-texture, hydraulic, and albedo maps nor the slow soil-water memory
+that the anchored ten-day windows suppress, so parameter calibration over a
+richer control space remains complementary to, not superseded by, the
+closure. The pseudo-forcing profile behind the closure design is likewise a
+compensatory projection of the residual onto a forcing-side control space,
+not evidence of a several-kelvin error in the station-fused forcing
+product; what it establishes is the functional form of the deficit, an
+amplitude whose sign changes within the day and which no time-constant
+parameter can express, together with the channel through which it acts. The
+closure constants are calibrated against one forcing product and one
+observation stream, and repeating the diagnosis and calibration under an
+independent forcing is the decisive next test. The differentiable model is
+therefore most valuable for what it can separate: the parameter-explained
+fraction of an observation misfit from its structural remainder, and the
+physical shape of that remainder.
+
+The Fortran-guided retrieval (Appendix~\ref{app:differentiability-support})
+is the state-estimation counterpart of the parameter workflow: an inverse
+calculation whose target is produced by a separately executed reference model
+and whose later state is withheld from the update.
+
+\conclusions
+
+The PyTorch implementation reproduces the translated OpenIFS SURF process
+sequence in a controlled full-domain boundary-driven integration and is closely aligned with
+the autonomous Fortran offline solution through a one-year, 97,709-column
+CMFD integration. The equivalence persists over a ten-year successively restarted
+integration (2009--2018) without error growth.
+Within a pinned software environment, repeated PyTorch integrations are
+bitwise reproducible; cross-build round-off differences, amplified by a
+decadal offline integration, motivate recording the interpreter, library
+builds, and source hashes in every experiment manifest. CUDA-graph execution of the
+batched integration reaches 3.8-fold
+the 32-thread Fortran reference integration time for the complete
+effective CMFD domain, a range consistent with published double-precision
+ports of comparable physics \citep{Dahm2023Pace,Lahlou2026CLMml,Lapillonne2026ICON}.
+The annual water budget closes with an RMS residual of
+$5.90\times10^{-12}$~kg~m$^{-2}$ across the evaluated columns. Automatic
+derivatives through a 24~h trajectory agree
+with centred finite differences to within $4\times10^{-4}$ relative error for
+representative forcing, state, and vegetation controls, with every
+conditional regime switch retained unsmoothed: the differentiated operator
+is the operator whose equivalence is verified, and the threshold-sensitive
+columns where a derivative becomes a local linearization are mapped and
+reported rather than hidden. The resulting model
+provides a numerically verified and accelerator-ready SURF implementation for
+offline process studies; in coupled applications, atmospheric lower-boundary
+states are supplied through the established OpenIFS interface.
+
+Independent MODIS evaluation separates this numerical verification from
+physical performance. The evaluated offline configuration captures nighttime
+LST variability but under-amplifies daytime surface warming and underestimates
+snow-cover extent. These diagnosed, spatially structured errors provide
+observation-based targets for the differentiable sensitivity and calibration
+workflow rather than being attributed to the PyTorch translation. Because the
+implementation is differentiable end to end, the daytime cold bias can be
+carried past diagnosis to correction: it is decomposed into a
+parameter-explained part bounded within the tested control space and a
+structural remainder, the functional form of the missing near-surface
+process is identified by reverse-mode attribution, and a new surface-layer
+closure is calibrated and verified against the same observations. This
+closing of the loop between satellite observation and process representation
+is the central capability the differentiable formulation adds to the verified
+translation.
+
+The gradient-based experiments against the same observations
+(Appendix~\ref{app:modis-calibration}) demonstrate end-to-end parameter
+training against real satellite data with exact reverse-mode derivatives: an
+observation-space information analysis gives condition numbers of
+$2.96\times10^{5}$ in spring--summer and 67 in autumn--winter, an
+observing-system simulation with the real MODIS operator recovers imposed
+table scales to within 0.3--1.1~\% under 1~K observation noise, and the
+real-observation calibration reduces day-pass LST RMSE by 5.7~\% in the
+calibration window
+and 3.8~\% in the seasonally held-out evaluation. Their equally important
+output is the bound itself: within the tested space of eight global table
+scales, at most about $0.5$~K of the
+$5.5$--$8.3$~K daytime cold offset is parameter-explained: a bound on this
+control space, not a general verdict on parameter optimization, which over
+richer or spatially heterogeneous parameter fields remains complementary to
+the closure below. A ten-control pseudo-forcing
+attribution shows the remainder corresponds to
+roughly 8.1~K peak-to-peak of missing near-surface diurnal amplitude, a
+compensatory profile that states the functional form of the deficit without
+locating its origin uniquely in the forcing data.
+
+The residual daytime cold offset beyond the calibrated parameter scales is
+corrected, in large part, by a process change that complements rather than
+replaces a parameter change. The two-timescale finite-capacity surface-layer closure of
+Sect.~\ref{sec:structural-slab}, yielding the optimized configuration
+SURF-Opt, is derived from the pseudo-forcing
+diagnosis, which on its own is a seasonally robust diagnostic profile
+rather than a parameterization or a correction of the forcing data, and is calibrated on ten days in two gradient stages: the
+coupling coefficient settles at its admissible bound
+($\lambda_s = 0.05$~K\,(W\,m$^{-2}$)$^{-1}$), and the day and night
+relaxation times are trained with the same machinery. The freely trained
+timescales converge outside the integrable domain; a step-level
+state-space check shows they resonate with an intrinsic dawn-time
+sensible-heat limit cycle in a handful of Tibetan-Plateau columns, an
+instability that the quality-controlled observation scores cannot see,
+so the training bounds are reset to the state-space-verified domain and
+the optimizer settles on its boundary at $\tau_{\mathrm{day}} = 6$~h and
+$\tau_{\mathrm{night}} = 3$~h. The calibrated closure removes 67--84~\% of
+the day bias (calibration to held-out; day RMSE $11.34$ to $7.17$~K), on
+every one of the 20 evaluation days and in every month of the year, at the
+cost of a warm-season night warming of about $+1$~K that leaves the night
+RMSE essentially unchanged. The closure recurrence is implemented at the
+driver level of the Fortran reference and verified to be bitwise invisible
+when inactive (Appendix~\ref{app:fortran-slab}); being expressed entirely
+in the grid sensible heat flux and the exchange air temperature, it applies
+there without re-tuning, so closures designed in the differentiable
+implementation are not tied to it.
+
+Using an independent Fortran trajectory, a compact initial-state retrieval
+also demonstrates that the verified gradients can reduce a deliberately
+introduced land-state error and improve a later held-out state
+(Appendix~\ref{app:differentiability-support}). This provides a controlled
+foundation for subsequent observation-constrained land-state and
+parameter-estimation studies.
+
+\input{sections/appendix_multiyear}
+
+\input{sections/appendix_differentiability}
+
+\input{sections/appendix_modis_calibration}
+
+\input{sections/appendix_fortran_slab}
+
+\codedataavailability{
+The common spun-up initial state, the observation subsets, the Fortran
+reference outputs, the archived evaluation products behind every reported
+number, and the per-experiment manifests are collected in a project archive
+deposited at
+\url{https://doi.org/10.5281/zenodo.XXXXXXX} (DOI to be assigned upon
+upload). The source code of the PyTorch implementation and the experiment
+scripts are available from the corresponding author upon request and will be
+released publicly upon publication. The raw driving datasets are public and
+are given by reference: CMFD
+(\url{https://doi.org/10.6084/m9.figshare.c.4557599}), ERA5-Land
+(\url{https://doi.org/10.24381/cds.e2161bac}), and MODIS MOD11C1/MOD10C1
+(\url{https://doi.org/10.5067/MODIS/MOD11C1.061},
+\url{https://doi.org/10.5067/MODIS/MOD10C1.061}). The native OpenIFS
+source code remains subject to ECMWF distribution constraints.
+}
+
+\authorcontribution{
+J. Yang implemented the PyTorch translation, ran the verification and performance
+experiments, and drafted the manuscript outline.
+}
+
+\competinginterests{
+The authors declare that they have no conflict of interest.
+}
+
+\begin{acknowledgements}
+This work was supported by the National Natural Science Foundation of China
+(Grants 42375155, 42305166, 42505154, and 42675199). The authors thank ECMWF for the
+OpenIFS and IFS documentation ecosystem and acknowledge the CMFD data
+providers.
+\end{acknowledgements}
+
+\bibliographystyle{copernicus}
+\bibliography{references}
+
+\end{document}

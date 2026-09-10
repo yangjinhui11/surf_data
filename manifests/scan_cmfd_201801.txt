@@ -1,0 +1,55 @@
+﻿Inventory:
+  Temp :   13 months; first=['197901', '201801', '201802'] last=['201810', '201811', '201812']
+  Prec :   13 months; first=['197901', '201801', '201802'] last=['201810', '201811', '201812']
+  Pres :   28 months; first=['197901', '197902', '197903'] last=['201810', '201811', '201812']
+  SHum :   13 months; first=['197901', '201801', '201802'] last=['201810', '201811', '201812']
+  SRad :   16 months; first=['197901', '197902', '197903'] last=['201810', '201811', '201812']
+  LRad :  318 months; first=['197901', '197902', '197903'] last=['201810', '201811', '201812']
+  Wind :   14 months; first=['197901', '197902', '201801'] last=['201810', '201811', '201812']
+
+Common months across all variables: 13
+['197901', '201801', '201802', '201803', '201804', '201805', '201806', '201807', '201808', '201809', '201810', '201811', '201812']
+
+Inspecting 201801 in bbox lon=78.0:102.0, lat=26.0:38.0
+
+Temp/temp: temp_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=225.03 / 261.771 / 305.04
+  units=K
+
+Prec/prec: prec_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=1.11759e-06 / 0.00474716 / 14.485
+  units=mm hr-1
+  mask mismatch vs first variable=0.0000%
+
+Pres/pres: pres_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=40092 / 60507.7 / 102042
+  units=Pa
+  mask mismatch vs first variable=0.0000%
+
+SHum/shum: shum_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=2.00044e-06 / 0.00102777 / 0.022863
+  units=kg kg-1
+  mask mismatch vs first variable=0.0000%
+
+SRad/srad: srad_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=0 / 148.579 / 848.25
+  units=W m-2
+  mask mismatch vs first variable=0.0000%
+
+LRad/lrad: lrad_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=94.5 / 190.113 / 453.25
+  units=W m-2
+  mask mismatch vs first variable=0.0000%
+
+Wind/wind: wind_CMFD_V0106_B-01_03hr_010deg_201801.nc.gz
+  shape=(248, 120, 240); valid=81.36%
+  min/mean/max=0.0519972 / 3.36864 / 27.178
+  units=m s-1
+  mask mismatch vs first variable=0.0000%
+

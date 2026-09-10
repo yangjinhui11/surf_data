@@ -1,0 +1,32 @@
+{
+  "tair_offset": {
+    "control_label": "air-temperature offset",
+    "loss_label": "final mean skin temperature",
+    "unit": "K K$^{-1}$",
+    "loss_at_control": 283.2256882431403,
+    "autograd": 0.9236909035311921,
+    "best_epsilon": 0.01,
+    "best_central_difference": 0.9237031643721139,
+    "best_relative_error": 1.3273572501071943e-05
+  },
+  "soil_w0_offset": {
+    "control_label": "initial top-soil water offset",
+    "loss_label": "final top-soil water",
+    "unit": "m$^3$ m$^{-3}$ per m$^3$ m$^{-3}$",
+    "loss_at_control": 0.265055651054507,
+    "autograd": 0.7274161728686216,
+    "best_epsilon": 0.0003,
+    "best_central_difference": 0.7274819812754426,
+    "best_relative_error": 9.04605316899322e-05
+  },
+  "rvlai": {
+    "control_label": "vegetation LAI-table value",
+    "loss_label": "24 h cumulative evaporation",
+    "unit": "kg m$^{-2}$ per LAI",
+    "loss_at_control": -3.7171898799905203,
+    "autograd": -0.3516257185696868,
+    "best_epsilon": 0.0001,
+    "best_central_difference": -0.3517545590647764,
+    "best_relative_error": 0.0003662795314782917
+  }
+}

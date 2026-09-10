@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-08-07T05:26:39.003693+00:00",
+  "year": 2018,
+  "days": 365,
+  "columns": 97709,
+  "output": "/data/yangjinhui/surf_pytorch/surf_paper/observations/modis_cmg/modis_cmg_2018_cmfd_columns.nc",
+  "products": {
+    "lst": {
+      "short_name": "MOD11C1",
+      "version": "061",
+      "doi": "10.5067/MODIS/MOD11C1.061"
+    },
+    "snow": {
+      "short_name": "MOD10C1",
+      "version": "61",
+      "doi": "10.5067/MODIS/MOD10C1.061"
+    }
+  },
+  "raw_files_retained": false
+}

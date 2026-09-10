@@ -1,0 +1,13 @@
+{
+  "ncolumns": 97709,
+  "nsteps": 12,
+  "start_step": 8640,
+  "warmup_steps": 24,
+  "archive_state_step": 8640,
+  "physics_dt_seconds": 1800,
+  "domain_mean_skin_t_K": 288.63050530232374,
+  "sensitivity_min_K_per_K": -271.2554768572216,
+  "sensitivity_mean_K_per_K": 0.24551879944411018,
+  "sensitivity_max_K_per_K": 30.01210570888403,
+  "finite": true
+}

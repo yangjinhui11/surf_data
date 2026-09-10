@@ -1,0 +1,15 @@
+{
+  "nvalid": 1000,
+  "nsteps": 240,
+  "device": "cpu",
+  "cpu_threads": 32,
+  "nan": false,
+  "nonfinite_fields": [],
+  "output_enabled": false,
+  "saved_steps": [],
+  "output_stride": 241,
+  "setup_seconds": 0.12008163519203663,
+  "integration_seconds": 18.86618567816913,
+  "modis_targets": null,
+  "modis_observables": null
+}

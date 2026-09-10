@@ -1,0 +1,191 @@
+[2026-08-25 23:56:46] prefetch: generating forcing for 2010 (wrap=2011) in background
+[2026-08-25 23:56:46] year 2009: generating forcing (ntime=2920 wrap=2010)
+record 240/2922
+record 240/2922
+record 480/2922
+record 480/2922
+record 720/2922
+record 720/2922
+record 960/2922
+record 960/2922
+record 1200/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1440/2922
+record 1920/2922
+record 2160/2922
+record 1680/2922
+record 2400/2922
+record 1920/2922
+record 2640/2922
+record 2880/2922
+record 2160/2922
+{"year": 2009, "ntime": 2920, "next_records": "next:2010", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2009.nc"}
+[2026-08-25 23:57:24] year 2009: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2009 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-25 23:57:24] year 2009: integration start
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2010, "ntime": 2920, "next_records": "next:2011", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2010.nc"}
+[2026-08-26 01:22:07] year 2009: integration done in 5083 s
+[2026-08-26 01:22:07] year 2009: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 01:22:07] prefetch: generating forcing for 2011 (wrap=2012) in background
+[2026-08-26 01:22:07] year 2010: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2010 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 01:22:07] year 2010: integration start
+record 240/2922
+record 480/2922
+record 720/2922
+record 960/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1920/2922
+record 2160/2922
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2011, "ntime": 2920, "next_records": "next:2012", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2011.nc"}
+[2026-08-26 02:50:09] year 2010: integration done in 5282 s
+[2026-08-26 02:50:09] year 2010: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 02:50:10] prefetch: generating forcing for 2012 (wrap=2013) in background
+[2026-08-26 02:50:10] year 2011: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2011 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 02:50:10] year 2011: integration start
+record 240/2930
+record 480/2930
+record 720/2930
+record 960/2930
+record 1200/2930
+record 1440/2930
+record 1680/2930
+record 1920/2930
+record 2160/2930
+record 2400/2930
+record 2640/2930
+record 2880/2930
+{"year": 2012, "ntime": 2928, "next_records": "next:2013", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2012.nc"}
+[2026-08-26 04:08:14] year 2011: integration done in 4684 s
+[2026-08-26 04:08:15] year 2011: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 04:08:16] prefetch: generating forcing for 2013 (wrap=2014) in background
+[2026-08-26 04:08:16] year 2012: setup (NSTOP=17568 NDFORC=2930)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2012 (NSTOP=17568 NDFORC=2930 threads=128)
+[2026-08-26 04:08:16] year 2012: integration start
+record 240/2922
+record 480/2922
+record 720/2922
+record 960/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1920/2922
+record 2160/2922
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2013, "ntime": 2920, "next_records": "next:2014", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2013.nc"}
+[2026-08-26 05:22:52] year 2012: integration done in 4476 s
+[2026-08-26 05:22:52] year 2012: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 05:22:52] prefetch: generating forcing for 2014 (wrap=2015) in background
+[2026-08-26 05:22:52] year 2013: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2013 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 05:22:52] year 2013: integration start
+record 240/2922
+record 480/2922
+record 720/2922
+record 960/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1920/2922
+record 2160/2922
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2014, "ntime": 2920, "next_records": "next:2015", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2014.nc"}
+[2026-08-26 06:37:49] year 2013: integration done in 4497 s
+[2026-08-26 06:37:50] year 2013: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 06:37:50] prefetch: generating forcing for 2015 (wrap=2016) in background
+[2026-08-26 06:37:50] year 2014: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2014 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 06:37:50] year 2014: integration start
+record 240/2922
+record 480/2922
+record 720/2922
+record 960/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1920/2922
+record 2160/2922
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2015, "ntime": 2920, "next_records": "next:2016", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2015.nc"}
+[2026-08-26 07:50:26] year 2014: integration done in 4356 s
+[2026-08-26 07:50:27] year 2014: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 07:50:27] prefetch: generating forcing for 2016 (wrap=2017) in background
+[2026-08-26 07:50:27] year 2015: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2015 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 07:50:27] year 2015: integration start
+record 240/2930
+record 480/2930
+record 720/2930
+record 960/2930
+record 1200/2930
+record 1440/2930
+record 1680/2930
+record 1920/2930
+record 2160/2930
+record 2400/2930
+record 2640/2930
+record 2880/2930
+{"year": 2016, "ntime": 2928, "next_records": "next:2017", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2016.nc"}
+[2026-08-26 09:03:49] year 2015: integration done in 4402 s
+[2026-08-26 09:03:50] year 2015: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 09:03:50] prefetch: generating forcing for 2017 (wrap=2018) in background
+[2026-08-26 09:03:50] year 2016: setup (NSTOP=17568 NDFORC=2930)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2016 (NSTOP=17568 NDFORC=2930 threads=128)
+[2026-08-26 09:03:50] year 2016: integration start
+record 240/2922
+record 480/2922
+record 720/2922
+record 960/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1920/2922
+record 2160/2922
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2017, "ntime": 2920, "next_records": "next:2018", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2017.nc"}
+[2026-08-26 10:18:06] year 2016: integration done in 4456 s
+[2026-08-26 10:18:06] year 2016: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 10:18:06] prefetch: generating forcing for 2018 (wrap=2009) in background
+[2026-08-26 10:18:06] year 2017: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2017 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 10:18:06] year 2017: integration start
+record 240/2922
+record 480/2922
+record 720/2922
+record 960/2922
+record 1200/2922
+record 1440/2922
+record 1680/2922
+record 1920/2922
+record 2160/2922
+record 2400/2922
+record 2640/2922
+record 2880/2922
+{"year": 2018, "ntime": 2920, "next_records": "next:2009", "ncol": 97709, "output": "/data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/forcing_cache/forcing_2018.nc"}
+[2026-08-26 11:28:46] year 2017: integration done in 4240 s
+[2026-08-26 11:28:46] year 2017: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 11:28:46] year 2018: setup (NSTOP=17520 NDFORC=2922)
+run directory ready: /data/yangjinhui/surf_pytorch/fortran_runs/era5land_multiyear_eq/years/2018 (NSTOP=17520 NDFORC=2922 threads=128)
+[2026-08-26 11:28:46] year 2018: integration start
+[2026-08-26 12:49:31] year 2018: integration done in 4845 s
+[2026-08-26 12:49:32] year 2018: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 12:49:32] chain 2009-2018 finished

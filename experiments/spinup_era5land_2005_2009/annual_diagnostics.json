@@ -1,0 +1,52 @@
+[
+  {
+    "year": 2005,
+    "steps": 17520,
+    "global_step": 17520,
+    "seconds": 1587.1197547279298,
+    "mean_swe_kg_m2": 17.818156616448743,
+    "max_swe_kg_m2": 10000.0,
+    "mean_soil_water_kg_m2": 761.8709099909292,
+    "records": 37
+  },
+  {
+    "year": 2006,
+    "steps": 17520,
+    "global_step": 35040,
+    "seconds": 2093.988136820495,
+    "mean_swe_kg_m2": 14.578180029885134,
+    "max_swe_kg_m2": 10000.0,
+    "mean_soil_water_kg_m2": 740.5530900816406,
+    "records": 74
+  },
+  {
+    "year": 2007,
+    "steps": 17520,
+    "global_step": 52560,
+    "seconds": 1691.5946197099984,
+    "mean_swe_kg_m2": 14.145385604141575,
+    "max_swe_kg_m2": 10000.0,
+    "mean_soil_water_kg_m2": 734.865312428941,
+    "records": 111
+  },
+  {
+    "year": 2008,
+    "steps": 17568,
+    "global_step": 70128,
+    "seconds": 2039.7377528063953,
+    "mean_swe_kg_m2": 14.066124352018006,
+    "max_swe_kg_m2": 10000.0,
+    "mean_soil_water_kg_m2": 738.1356373436092,
+    "records": 149
+  },
+  {
+    "year": 2009,
+    "steps": 17520,
+    "global_step": 87648,
+    "seconds": 1784.4122618120164,
+    "mean_swe_kg_m2": 15.288642756759765,
+    "max_swe_kg_m2": 10000.0,
+    "mean_soil_water_kg_m2": 729.6366486669893,
+    "records": 186
+  }
+]

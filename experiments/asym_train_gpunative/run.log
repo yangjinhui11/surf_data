@@ -1,0 +1,100 @@
+/home/qixiang/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{"iteration": 0, "loss": 484.0878, "tau_day_h": 10.1, "tau_night_h": 10.1, "subset_rmse": {"day": 5.402, "night": 4.43}, "stepped": false, "elapsed_s": 67.3}
+/home/qixiang/yangjinhui/openifs/surf_pytorch/surf_pytorch/physics/farquhar.py:346: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  zgm_c3 = rgm25 * zt_gm * torch.clamp_min(1.0 - rstress_gm, min=float(zwater_lim.min()))
+{"iteration": 1, "loss": 484.0878, "tau_day_h": 9.607, "tau_night_h": 9.607, "subset_rmse": {"day": 5.402, "night": 4.43}, "stepped": true, "elapsed_s": 182.5}
+{"iteration": 2, "loss": 479.9975, "tau_day_h": 9.139, "tau_night_h": 9.139, "subset_rmse": {"day": 5.367, "night": 4.426}, "stepped": true, "elapsed_s": 298.0}
+{"iteration": 3, "loss": 476.0516, "tau_day_h": 8.693, "tau_night_h": 8.694, "subset_rmse": {"day": 5.332, "night": 4.424}, "stepped": true, "elapsed_s": 412.5}
+{"iteration": 4, "loss": 471.8373, "tau_day_h": 8.269, "tau_night_h": 8.271, "subset_rmse": {"day": 5.296, "night": 4.419}, "stepped": true, "elapsed_s": 527.7}
+{"iteration": 5, "loss": 467.489, "tau_day_h": 7.865, "tau_night_h": 7.868, "subset_rmse": {"day": 5.26, "night": 4.412}, "stepped": true, "elapsed_s": 642.5}
+{"iteration": 6, "loss": 463.1739, "tau_day_h": 7.48, "tau_night_h": 7.484, "subset_rmse": {"day": 5.223, "night": 4.407}, "stepped": true, "elapsed_s": 757.9}
+{"iteration": 7, "loss": 459.587, "tau_day_h": 7.115, "tau_night_h": 7.121, "subset_rmse": {"day": 5.192, "night": 4.402}, "stepped": true, "elapsed_s": 873.0}
+{"iteration": 8, "loss": 455.3582, "tau_day_h": 6.768, "tau_night_h": 6.775, "subset_rmse": {"day": 5.154, "night": 4.398}, "stepped": true, "elapsed_s": 987.6}
+{"iteration": 9, "loss": 451.2804, "tau_day_h": 6.439, "tau_night_h": 6.446, "subset_rmse": {"day": 5.116, "night": 4.396}, "stepped": true, "elapsed_s": 1102.2}
+{"iteration": 10, "loss": 447.1896, "tau_day_h": 6.127, "tau_night_h": 6.135, "subset_rmse": {"day": 5.079, "night": 4.391}, "stepped": true, "elapsed_s": 1216.8}
+{"iteration": 11, "loss": 443.144, "tau_day_h": 6.0, "tau_night_h": 5.834, "subset_rmse": {"day": 5.043, "night": 4.386}, "stepped": true, "elapsed_s": 1331.2}
+{"iteration": 12, "loss": 441.2739, "tau_day_h": 6.0, "tau_night_h": 5.55, "subset_rmse": {"day": 5.028, "night": 4.382}, "stepped": true, "elapsed_s": 1445.8}
+{"iteration": 13, "loss": 440.807, "tau_day_h": 6.0, "tau_night_h": 5.281, "subset_rmse": {"day": 5.026, "night": 4.378}, "stepped": true, "elapsed_s": 1561.3}
+{"iteration": 14, "loss": 440.7363, "tau_day_h": 6.0, "tau_night_h": 5.026, "subset_rmse": {"day": 5.025, "night": 4.378}, "stepped": true, "elapsed_s": 1676.2}
+{"iteration": 15, "loss": 440.2378, "tau_day_h": 6.0, "tau_night_h": 4.783, "subset_rmse": {"day": 5.023, "night": 4.375}, "stepped": true, "elapsed_s": 1792.3}
+{"iteration": 16, "loss": 439.854, "tau_day_h": 6.0, "tau_night_h": 4.553, "subset_rmse": {"day": 5.021, "night": 4.373}, "stepped": true, "elapsed_s": 1907.7}
+{"iteration": 17, "loss": 439.3011, "tau_day_h": 6.0, "tau_night_h": 4.334, "subset_rmse": {"day": 5.017, "night": 4.37}, "stepped": true, "elapsed_s": 2023.1}
+{"iteration": 18, "loss": 438.6746, "tau_day_h": 6.0, "tau_night_h": 4.126, "subset_rmse": {"day": 5.013, "night": 4.367}, "stepped": true, "elapsed_s": 2138.6}
+{"iteration": 19, "loss": 438.0162, "tau_day_h": 6.0, "tau_night_h": 4.053, "subset_rmse": {"day": 5.009, "night": 4.365}, "stepped": true, "elapsed_s": 2253.5}
+{"iteration": 20, "loss": 437.7874, "tau_day_h": 6.0, "tau_night_h": 3.973, "subset_rmse": {"day": 5.007, "night": 4.364}, "stepped": true, "elapsed_s": 2369.0}
+{"iteration": 21, "loss": 437.5331, "tau_day_h": 6.0, "tau_night_h": 3.884, "subset_rmse": {"day": 5.005, "night": 4.363}, "stepped": true, "elapsed_s": 2484.7}
+{"iteration": 22, "loss": 437.2305, "tau_day_h": 6.0, "tau_night_h": 3.79, "subset_rmse": {"day": 5.003, "night": 4.362}, "stepped": true, "elapsed_s": 2600.9}
+{"iteration": 23, "loss": 436.8759, "tau_day_h": 6.0, "tau_night_h": 3.692, "subset_rmse": {"day": 5.001, "night": 4.361}, "stepped": true, "elapsed_s": 2717.0}
+{"iteration": 24, "loss": 436.5559, "tau_day_h": 6.0, "tau_night_h": 3.591, "subset_rmse": {"day": 4.998, "night": 4.36}, "stepped": true, "elapsed_s": 2832.4}
+{"iteration": 25, "loss": 436.1608, "tau_day_h": 6.0, "tau_night_h": 3.487, "subset_rmse": {"day": 4.995, "night": 4.358}, "stepped": true, "elapsed_s": 2947.6}
+{"iteration": 26, "loss": 435.7639, "tau_day_h": 6.0, "tau_night_h": 3.381, "subset_rmse": {"day": 4.991, "night": 4.358}, "stepped": true, "elapsed_s": 3062.9}
+{"iteration": 27, "loss": 435.1489, "tau_day_h": 6.0, "tau_night_h": 3.275, "subset_rmse": {"day": 4.986, "night": 4.357}, "stepped": true, "elapsed_s": 3178.1}
+{"iteration": 28, "loss": 434.7155, "tau_day_h": 6.0, "tau_night_h": 3.174, "subset_rmse": {"day": 4.982, "night": 4.356}, "stepped": true, "elapsed_s": 3293.7}
+{"iteration": 29, "loss": 434.2841, "tau_day_h": 6.0, "tau_night_h": 3.065, "subset_rmse": {"day": 4.979, "night": 4.355}, "stepped": true, "elapsed_s": 3408.4}
+{"iteration": 30, "loss": 433.6657, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.973, "night": 4.355}, "stepped": true, "elapsed_s": 3523.7}
+{"iteration": 31, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 3638.4}
+{"iteration": 32, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 3753.7}
+{"iteration": 33, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 3868.9}
+{"iteration": 34, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 3983.9}
+{"iteration": 35, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 4098.6}
+{"iteration": 36, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 4212.6}
+{"iteration": 37, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 4326.4}
+{"iteration": 38, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 4440.4}
+{"iteration": 39, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 4554.3}
+{"iteration": 40, "loss": 433.3373, "tau_day_h": 6.0, "tau_night_h": 3.0, "subset_rmse": {"day": 4.97, "night": 4.354}, "stepped": true, "elapsed_s": 4668.4}
+{"eval": "prior", "window": "calibration", "day": 271, "elapsed_s": 4677.7}
+{"eval": "prior", "window": "calibration", "day": 281, "elapsed_s": 4687.0}
+{"eval": "prior", "window": "calibration", "day": 291, "elapsed_s": 4696.5}
+{"eval": "prior", "window": "calibration", "day": 301, "elapsed_s": 4705.9}
+{"eval": "prior", "window": "calibration", "day": 311, "elapsed_s": 4715.4}
+{"eval": "prior", "window": "calibration", "day": 321, "elapsed_s": 4724.8}
+{"eval": "prior", "window": "calibration", "day": 331, "elapsed_s": 4734.3}
+{"eval": "prior", "window": "calibration", "day": 341, "elapsed_s": 4743.7}
+{"eval": "prior", "window": "calibration", "day": 351, "elapsed_s": 4753.1}
+{"eval": "prior", "window": "calibration", "day": 361, "elapsed_s": 4762.4}
+{"eval": "prior", "window": "calibration", "summary": {"day": {"n": 73700, "bias_K": -5.48244672897678, "rmse_K": 7.44618185132911}, "night": {"n": 15491, "bias_K": -0.4276929741484164, "rmse_K": 3.833792345901801}}}
+{"eval": "prior", "window": "validation", "day": 91, "elapsed_s": 4771.8}
+{"eval": "prior", "window": "validation", "day": 101, "elapsed_s": 4781.3}
+{"eval": "prior", "window": "validation", "day": 111, "elapsed_s": 4790.7}
+{"eval": "prior", "window": "validation", "day": 121, "elapsed_s": 4800.1}
+{"eval": "prior", "window": "validation", "day": 131, "elapsed_s": 4809.6}
+{"eval": "prior", "window": "validation", "day": 141, "elapsed_s": 4819.0}
+{"eval": "prior", "window": "validation", "day": 151, "elapsed_s": 4828.5}
+{"eval": "prior", "window": "validation", "day": 161, "elapsed_s": 4837.9}
+{"eval": "prior", "window": "validation", "day": 171, "elapsed_s": 4847.3}
+{"eval": "prior", "window": "validation", "day": 181, "elapsed_s": 4856.7}
+{"eval": "prior", "window": "validation", "summary": {"day": {"n": 131030, "bias_K": -8.28158033791611, "rmse_K": 11.34224846986844}, "night": {"n": 62077, "bias_K": 1.0723567427742708, "rmse_K": 4.348703028534915}}}
+{"eval": "trained", "window": "calibration", "day": 271, "elapsed_s": 4866.0}
+{"eval": "trained", "window": "calibration", "day": 281, "elapsed_s": 4875.3}
+{"eval": "trained", "window": "calibration", "day": 291, "elapsed_s": 4884.7}
+{"eval": "trained", "window": "calibration", "day": 301, "elapsed_s": 4894.0}
+{"eval": "trained", "window": "calibration", "day": 311, "elapsed_s": 4903.3}
+{"eval": "trained", "window": "calibration", "day": 321, "elapsed_s": 4912.6}
+{"eval": "trained", "window": "calibration", "day": 331, "elapsed_s": 4921.9}
+{"eval": "trained", "window": "calibration", "day": 341, "elapsed_s": 4931.3}
+{"eval": "trained", "window": "calibration", "day": 351, "elapsed_s": 4940.6}
+{"eval": "trained", "window": "calibration", "day": 361, "elapsed_s": 4949.9}
+{"eval": "trained", "window": "calibration", "summary": {"day": {"n": 73700, "bias_K": -1.8256610372737432, "rmse_K": 4.818926083781737}, "night": {"n": 15491, "bias_K": -0.3093965795791922, "rmse_K": 3.6590016136933747}}}
+{"eval": "trained", "window": "validation", "day": 91, "elapsed_s": 4959.2}
+{"eval": "trained", "window": "validation", "day": 101, "elapsed_s": 4968.5}
+{"eval": "trained", "window": "validation", "day": 111, "elapsed_s": 4977.8}
+{"eval": "trained", "window": "validation", "day": 121, "elapsed_s": 4987.1}
+{"eval": "trained", "window": "validation", "day": 131, "elapsed_s": 4996.4}
+{"eval": "trained", "window": "validation", "day": 141, "elapsed_s": 5005.7}
+{"eval": "trained", "window": "validation", "day": 151, "elapsed_s": 5015.0}
+{"eval": "trained", "window": "validation", "day": 161, "elapsed_s": 5024.3}
+{"eval": "trained", "window": "validation", "day": 171, "elapsed_s": 5033.6}
+{"eval": "trained", "window": "validation", "day": 181, "elapsed_s": 5042.9}
+{"eval": "trained", "window": "validation", "summary": {"day": {"n": 131030, "bias_K": -1.350112143157897, "rmse_K": 7.16822033407603}, "night": {"n": 62077, "bias_K": 2.0831053231669485, "rmse_K": 4.484218006094613}}}
+Traceback (most recent call last):
+  File "/data/yangjinhui/surf_pytorch/cmfd_offline_runner/modis_slab_asym_train.py", line 491, in <module>
+    main()
+  File "/data/yangjinhui/surf_pytorch/cmfd_offline_runner/modis_slab_asym_train.py", line 484, in main
+    args.output.write_text(json.dumps(final, indent=1) + "\n")
+  File "/home/qixiang/.conda/envs/yjh/lib/python3.10/pathlib.py", line 1154, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+  File "/home/qixiang/.conda/envs/yjh/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+IsADirectoryError: [Errno 21] Is a directory: '/data/yangjinhui/surf_pytorch/surf_paper/experiments/asym_train_gpunative'

@@ -1,0 +1,15 @@
+{
+  "nvalid": 10000,
+  "nsteps": 240,
+  "device": "cuda",
+  "cpu_threads": null,
+  "nan": false,
+  "nonfinite_fields": [],
+  "output_enabled": false,
+  "saved_steps": [],
+  "output_stride": 241,
+  "setup_seconds": 1.8928545359522104,
+  "integration_seconds": 16.114942640066147,
+  "modis_targets": null,
+  "modis_observables": null
+}

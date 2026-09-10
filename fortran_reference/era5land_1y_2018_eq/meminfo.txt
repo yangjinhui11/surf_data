@@ -1,0 +1,37 @@
+## EC_MEMINFO 
+## EC_MEMINFO : MPI-version 3.1
+## EC_MEMINFO : Start of MPI-library version
+Open MPI v4.1.2, package: Debian OpenMPI, ident: 4.1.2, repo rev: v4.1.2, Nov 24, 2021
+## EC_MEMINFO : End of MPI-library version
+## EC_MEMINFO : OpenMP-version 4.5.201511
+## EC_MEMINFO : CPU-model : Intel(R) Xeon(R) Gold 6430
+## EC_MEMINFO : Hugepages : 2097152 bytes/page x 2500 pages = 5242880000 bytes
+## EC_MEMINFO 
+## EC_MEMINFO 
+## EC_MEMINFO ********************************************************************************
+## EC_MEMINFO *** Mapping of MPI & I/O-tasks to nodes and tasks' thread-to-core affinities ***
+## EC_MEMINFO ********************************************************************************
+## EC_MEMINFO 
+## EC_MEMINFO Running on 1 nodes (2-numa) with 1 compute + 0 I/O-tasks and 64+0 threads
+## EC_MEMINFO 
+## EC_MEMINFO      # NODE#             NODENAME    MPI#  WORLD#  GETPID    I/O#  MASTER    REF#    OMP#  Core affinities
+## EC_MEMINFO      = =====             ========    ====  ======  ======    ====  ======    ====    ====  ===============
+## EC_MEMINFO 
+## EC_MEMINFO      0     0               ubuntu       0       0 1257407    [No]     Yes       0      64  {123,97,44*,103,45*,53,6*,6*,96*,3,46,33*,27,48,84,80,83*,127*,40,83*,37,119*,51*,61*,63,44*,17,52,100*,33*,14*,127*,31,45*,111,12,60*,19,14*,29,61*,125,107,51*,54,23,62,119*,49,24,100*,67,78,14*,121*,119*,79,114,96*,9,60*,121*,5,65}
+## EC_MEMINFO 
+## EC_MEMINFO                           | TC    | MEMORY USED(MB) | MEMORY FREE(MB)  -------------   INCLUDING CACHED|  %USED %HUGE  | Energy  Power LoadAvg
+## EC_MEMINFO                           | Malloc| Inc Heap        | Numa region  0 | Numa region  1 |                |               |    (J)    (W)
+## EC_MEMINFO Node Name                 | Heap  | RSS(sum)        | Small  Huge or | Small  Huge or | Total          |
+## EC_MEMINFO                           | (sum) | Small    Huge   |  Only   Small  |  Only   Small  | Memfree+Cached |
+## EC_MEMINFO    0 ubuntu                     0   25140    5000     13164     844     5515     174     20506  158023     12.0  79.6         0      0  136.59  Hg/p:ec_mpi_finalize:mpl_end
+## EC_MEMINFO 
+## EC_MEMINFO 
+## EC_MEMINFO  Total energy consumed :        0.000 kWh (0 J)
+## EC_MEMINFO  Avg. power / node     : 0 W across 1 nodes
+## EC_MEMINFO 
+## EC_MEMINFO 
+## EC_MEMINFO Detailed memory information for program /home/qixiang/yangjinhui/openifs/build_offline/bin/osmMASTER -- wall-time :      0.086s
+## EC_MEMINFO Running on 1 nodes (2-numa) with 1 compute + 0 I/O-tasks and 64+0 threads at 01:01:40.027 on 26-Aug-2026
+## EC_MEMINFO The Job Name is  and the Job ID is 
+## EC_MEMINFO 
+## EC_MEMINFO 

@@ -1,0 +1,51 @@
+[2026-08-25 23:56:46] prefetch: generating forcing for 2010 (wrap=2011) in background
+[2026-08-25 23:56:46] year 2009: generating forcing (ntime=2920 wrap=2010)
+[2026-08-25 23:57:24] year 2009: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-25 23:57:24] year 2009: integration start
+[2026-08-26 01:22:07] year 2009: integration done in 5083 s
+[2026-08-26 01:22:07] year 2009: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 01:22:07] prefetch: generating forcing for 2011 (wrap=2012) in background
+[2026-08-26 01:22:07] year 2010: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 01:22:07] year 2010: integration start
+[2026-08-26 02:50:09] year 2010: integration done in 5282 s
+[2026-08-26 02:50:09] year 2010: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 02:50:10] prefetch: generating forcing for 2012 (wrap=2013) in background
+[2026-08-26 02:50:10] year 2011: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 02:50:10] year 2011: integration start
+[2026-08-26 04:08:14] year 2011: integration done in 4684 s
+[2026-08-26 04:08:15] year 2011: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 04:08:16] prefetch: generating forcing for 2013 (wrap=2014) in background
+[2026-08-26 04:08:16] year 2012: setup (NSTOP=17568 NDFORC=2930)
+[2026-08-26 04:08:16] year 2012: integration start
+[2026-08-26 05:22:52] year 2012: integration done in 4476 s
+[2026-08-26 05:22:52] year 2012: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 05:22:52] prefetch: generating forcing for 2014 (wrap=2015) in background
+[2026-08-26 05:22:52] year 2013: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 05:22:52] year 2013: integration start
+[2026-08-26 06:37:49] year 2013: integration done in 4497 s
+[2026-08-26 06:37:50] year 2013: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 06:37:50] prefetch: generating forcing for 2015 (wrap=2016) in background
+[2026-08-26 06:37:50] year 2014: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 06:37:50] year 2014: integration start
+[2026-08-26 07:50:26] year 2014: integration done in 4356 s
+[2026-08-26 07:50:27] year 2014: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 07:50:27] prefetch: generating forcing for 2016 (wrap=2017) in background
+[2026-08-26 07:50:27] year 2015: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 07:50:27] year 2015: integration start
+[2026-08-26 09:03:49] year 2015: integration done in 4402 s
+[2026-08-26 09:03:50] year 2015: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 09:03:50] prefetch: generating forcing for 2017 (wrap=2018) in background
+[2026-08-26 09:03:50] year 2016: setup (NSTOP=17568 NDFORC=2930)
+[2026-08-26 09:03:50] year 2016: integration start
+[2026-08-26 10:18:06] year 2016: integration done in 4456 s
+[2026-08-26 10:18:06] year 2016: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 10:18:06] prefetch: generating forcing for 2018 (wrap=2009) in background
+[2026-08-26 10:18:06] year 2017: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 10:18:06] year 2017: integration start
+[2026-08-26 11:28:46] year 2017: integration done in 4240 s
+[2026-08-26 11:28:46] year 2017: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 11:28:46] year 2018: setup (NSTOP=17520 NDFORC=2922)
+[2026-08-26 11:28:46] year 2018: integration start
+[2026-08-26 12:49:31] year 2018: integration done in 4845 s
+[2026-08-26 12:49:32] year 2018: complete (o_gg.nc + restartout.nc retained)
+[2026-08-26 12:49:32] chain 2009-2018 finished

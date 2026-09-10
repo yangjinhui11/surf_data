@@ -1,0 +1,4 @@
+/home/qixiang/.local/lib/python3.10/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+{"year": 2018, "steps": 17520, "global_step": 17520, "seconds": 1656.1712482180446, "mean_swe_kg_m2": 14.3749059956344, "max_swe_kg_m2": 10000.0, "mean_soil_water_kg_m2": 743.6053976412901, "records": 37}
+{"years": [2018], "nsteps": 17520, "total_seconds": 1678.9934726394713}

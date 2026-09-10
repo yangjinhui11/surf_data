@@ -1,0 +1,114 @@
+{
+ "config": {
+  "controls_mode": "extended",
+  "control_names": [
+   "rvlai_high",
+   "rvrsmin_high",
+   "rvz0m_high",
+   "rvlai_low",
+   "rvrsmin_low",
+   "rvz0m_low",
+   "lambda_soil",
+   "rcsoil"
+  ],
+  "twin": null,
+  "twin_noise_k": null,
+  "calibration_days": [
+   271,
+   281,
+   291,
+   301,
+   311,
+   321,
+   331,
+   341,
+   351,
+   361
+  ],
+  "validation_days": [
+   91,
+   101,
+   111,
+   121,
+   131,
+   141,
+   151,
+   161,
+   171,
+   181
+  ],
+  "column_stride": 5,
+  "iterations": 30,
+  "learning_rate": 0.02,
+  "scale_bound": 2.0,
+  "lst_error_k": 1.0,
+  "seed": 20260822,
+  "case": "/data/yangjinhui/surf_pytorch/surf_paper/experiments/prod_gpunative_1y_2018_modis",
+  "data": "/data/yangjinhui/surf_pytorch/processed/multiyear_2009_2018/cmfd_valid_columns_2018_dataset",
+  "observations": "/data/yangjinhui/surf_pytorch/surf_paper/observations/modis_cmg/modis_cmg_2018_cmfd_columns.nc",
+  "state_archive": "/data/yangjinhui/surf_pytorch/surf_paper/experiments/prod_gpunative_1y_2018_modis/torch_offline_daily.npz"
+ },
+ "final_scales": [
+  0.6909570518910242,
+  1.500642033411393,
+  0.5561624062439761,
+  0.657455027717708,
+  1.6183046200201376,
+  0.5640699603311529,
+  1.8847886034400243,
+  0.7081398336197642
+ ],
+ "recovery": null,
+ "baseline_full_domain": {
+  "calibration_window": {
+   "day": {
+    "n": 73700,
+    "bias_K": -5.48244672897678,
+    "rmse_K": 7.44618185132911
+   },
+   "night": {
+    "n": 15491,
+    "bias_K": -0.4276929741484164,
+    "rmse_K": 3.833792345901801
+   }
+  },
+  "validation_window": {
+   "day": {
+    "n": 131030,
+    "bias_K": -8.28158033791611,
+    "rmse_K": 11.34224846986844
+   },
+   "night": {
+    "n": 62077,
+    "bias_K": 1.0723567427742708,
+    "rmse_K": 4.348703028534915
+   }
+  }
+ },
+ "calibrated_full_domain": {
+  "calibration_window": {
+   "day": {
+    "n": 73700,
+    "bias_K": -4.955215983245113,
+    "rmse_K": 7.022404788207833
+   },
+   "night": {
+    "n": 15491,
+    "bias_K": -0.5541089424077067,
+    "rmse_K": 3.757920803853616
+   }
+  },
+  "validation_window": {
+   "day": {
+    "n": 131030,
+    "bias_K": -7.732715208108754,
+    "rmse_K": 10.912116584480138
+   },
+   "night": {
+    "n": 62077,
+    "bias_K": -0.1125054244119285,
+    "rmse_K": 4.3255163788145286
+   }
+  }
+ }
+}

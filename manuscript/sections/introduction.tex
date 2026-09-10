@@ -1,0 +1,128 @@
+Land-surface schemes regulate the exchange of momentum, energy, water, and
+carbon between the atmosphere and the terrestrial surface. Their treatment of
+soil moisture, snow, vegetation, and surface temperature influences
+near-surface meteorology, boundary-layer development, runoff, and the memory
+of land--atmosphere anomalies.
+
+Land-surface modelling rests on several decades of process development
+accumulated in a small number of community schemes. The Common Land Model,
+which assembled the land physics of earlier biosphere--atmosphere schemes
+into a single column model for energy, water, and carbon exchange
+\citep{Dai2003CoLM}, is widely used in climate and Earth system modelling
+and has been carried forward along two main lines: the Community Land Model
+(CLM) developed in the United States \citep{Oleson2010CLM} and the Common
+Land Model (CoLM) developed in China, most recently documented as CoLM 2024
+\citep{Dai2004TwoBigLeaf,YuanDai2025CoLM}. The Noah scheme and its
+multi-parameterization successor Noah-MP carry the land surface of mesoscale
+numerical weather prediction \citep{Niu2011NoahMP}. Operational
+numerical-weather-prediction centres have likewise long developed their own
+land-surface models, among them ECMWF's ECLand, the Joint UK Land
+Environment Simulator (JULES; \citealp{Wiltshire2020JULES}), and the
+Community Atmosphere--Biosphere Land Exchange model (CABLE;
+\citealp{Haverd2018CABLE}). At ECMWF, in particular, the land surface evolved from
+the original TESSEL formulation through the tiled HTESSEL hydrology
+\citep{ViterboBeljaars1995,VanDenHurk2000,Balsamo2009} into ECLand, a
+modular modelling system that couples energy, water, and carbon and
+underpins the land surface of the operational IFS and its ensemble
+reanalyses \citep{Boussetta2021ECLand}. The OpenIFS land-surface component
+examined here belongs to this lineage; its physical formulation is
+documented in the IFS physical-process documentation \citep{ECMWFIFSPartIV}.
+These schemes are mature in their process content, but they are written in
+Fortran, and neither derivatives nor accelerator-oriented batch execution is
+part of their design, so parameter and sensitivity studies rely on ensembles
+of independent integrations.
+
+Atmospheric prediction has in the same years moved toward models whose
+complete time integration is differentiable. Differentiable programming was
+brought into Earth-system modelling to combine process models with learned
+components inside one gradient computation \citep{Gelbrecht2023}, and reviews
+of differentiable geoscience identify gradient access through the process
+equations as the requirement that unifies physical and machine-learning
+approaches \citep{Shen2023}. NeuralGCM couples a differentiable dynamical
+core with learned parameterizations and trains the combination end to end
+\citep{Kochkov2024NeuralGCM}; its precipitation-focused successor is trained
+directly against satellite retrievals, which is only possible because every
+component of the model can be differentiated \citep{Yuval2026Precip}. These
+developments show what differentiability offers operational prediction: the
+observation record itself becomes the training signal.
+
+Differentiable land-surface implementations are more recent and remain
+site-focused. JAX-CanVeg reimplements the CanVeg canopy model in JAX, keeps
+the ecohydrological process chain intact, and embeds a neural-network
+stomatal-conductance closure within the process equations
+\citep{Jiang2025JAXCanVeg}. NoahPy recasts the Noah land surface model, in a
+permafrost thermo-hydrology configuration, as a process-encapsulated
+recurrent structure in PyTorch; it reproduces the Fortran original at site
+level with Nash--Sutcliffe efficiency above 0.99, and gradient-based
+calibration of its soil parameters converges faster and more stably than the
+SCE-UA search at a Qinghai--Tibet Plateau site \citep{NoahPy2026}. No
+differentiable implementation yet covers the complete land physics of an
+operational forecasting system over a continental domain with decadal
+verification, and the conditioning of the resulting estimation problem,
+which decides whether a gradient-based fit is well posed, has received
+little attention in land-surface applications.
+
+Land-surface simulations now appear in applications that require large
+ensembles, parameter sensitivities, or the assimilation of land-surface
+observations. These applications benefit from an implementation that
+evaluates many independent columns concurrently and provides derivatives of
+selected model outputs with respect to inputs and parameters.
+Finite-difference ensembles need one integration per perturbed control;
+automatic differentiation obtains every selected derivative from a single
+reverse calculation while retaining process-based state variables and
+conservation constraints.
+
+This study presents a PyTorch implementation of the OpenIFS SURF land-surface
+physics. The implementation retains the tiled process sequence of the reference scheme:
+surface exchange, the implicit surface energy balance, canopy interception,
+soil heat and water transport, and single-layer snow processes. Every
+conditional regime switch of the reference scheme is kept unsmoothed, so the
+operator that is differentiated is the same operator whose numerical
+equivalence is verified. Its purpose is
+to reproduce the numerical behaviour of SURF while enabling batched CPU/GPU
+execution and differentiation of the tensor operations. The implementation is
+therefore evaluated as a numerical translation of an established physical
+scheme rather than as a new land-surface parameterization. Verification and
+estimation are given equal weight: equivalence against the Fortran reference
+is established before any gradient is used.
+
+The study has six objectives. First, the principal SURF equations and their
+tensor representation are described. Second, the implementation is evaluated
+against the independent Fortran reference implementation under identical
+roughness and surface-layer exchange boundary conditions, a separate native OpenIFS offline-column experiment
+isolates differences associated with reconstructing the atmospheric
+surface-layer boundary in standalone mode, and a one-year full-domain
+autonomous integration over heterogeneous CMFD forcing tests the complete
+prognostic sequence from a common initial state. Third, a ten-year successively restarted
+integration examines the stability of this equivalence over multiple forcing
+years. Fourth,
+multi-step automatic derivatives of forcing, initial state, and vegetation
+controls are verified against centred finite differences and applied in
+regional sensitivity analysis, observation-space identifiability diagnosis,
+parameter calibration, and initial-state retrieval. Fifth, the autonomous
+integration is evaluated against independent Terra MODIS observations of land
+surface temperature and snow cover. Sixth, and central to the
+scientific aim, the differentiability is used to close the loop between the
+MODIS observations and the process formulation: the residual daytime bias is
+separated into a parameter-explained part and a structural remainder, the
+missing process is diagnosed by reverse-mode attribution, and a new
+finite-capacity surface-layer closure is designed, calibrated, and verified
+against the same observations. The batch-size CPU
+and GPU experiments that quantify the acceleration of the batched tensor
+implementation close the study, without changing the physical time step or
+numerical precision.
+
+Section~\ref{sec:model-background} describes the model formulation.
+Section~\ref{sec:fortran-torch-equivalence} presents the Fortran--PyTorch
+consistency experiments, including the ten-year successively restarted integration of
+Sect.~\ref{sec:multiyear}. Section~\ref{sec:gradient-calibration} describes
+the differentiable formulation and its use in sensitivity analysis and
+initial-state retrieval. Section~\ref{sec:modis-evaluation} presents the
+independent MODIS evaluation and the structural daytime bias it reveals, then
+uses the differentiable formulation to attribute that bias to a missing
+near-surface process and to design, calibrate, and verify a finite-capacity
+surface-layer closure that removes most of it; the
+parameter-calibration and pseudo-forcing experiments that establish the
+structural nature of the bias and motivate the closure are documented in
+Appendix~\ref{app:modis-calibration}. Section~\ref{sec:performance}
+reports computational scaling.

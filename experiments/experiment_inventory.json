@@ -1,0 +1,654 @@
+{
+ "autonomous_multiyear_2009_2018_torch": {
+  "total_bytes": 0,
+  "n_files": 0,
+  "top_files": []
+ },
+ "budget_1y_2018_20260807": {
+  "total_bytes": 147849997,
+  "n_files": 6,
+  "top_files": [
+   {
+    "name": "restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "water_energy_budget.npz",
+    "bytes": 7860888
+   },
+   {
+    "name": "run.log",
+    "bytes": 328
+   },
+   {
+    "name": "torch_offline_summary.json",
+    "bytes": 328
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 69
+   },
+   {
+    "name": "pid",
+    "bytes": 7
+   }
+  ],
+  "metadata.json": {
+   "nvalid": 97709,
+   "ncol_padded": 97720,
+   "nsteps": 2920,
+   "block": 40
+  },
+  "torch_offline_summary.json": {
+   "nvalid": 97709,
+   "nsteps": 17520,
+   "device": "cuda",
+   "cpu_threads": null,
+   "nan": false,
+   "nonfinite_fields": [],
+   "output_enabled": false,
+   "saved_steps": [],
+   "output_stride": 8,
+   "budget_enabled": true,
+   "budget_stride": 48,
+   "setup_seconds": 5.785282466560602,
+   "integration_seconds": 2836.4382293885574
+  }
+ },
+ "ecland_site_validation_20260809": {
+  "total_bytes": 50178228,
+  "n_files": 531,
+  "top_files": [
+   {
+    "name": "fortran_nfrpos84/stdout.log",
+    "bytes": 36874929
+   },
+   {
+    "name": "ecland-master-dp-vdfdiag",
+    "bytes": 2957544
+   },
+   {
+    "name": "fortran_vdf_diag_run/ecland-master-dp",
+    "bytes": 2957544
+   },
+   {
+    "name": "fortran_vdf_diag_run/stdout.log",
+    "bytes": 531801
+   },
+   {
+    "name": "fortran_nfrpos1_nc4/stdout.log",
+    "bytes": 508262
+   },
+   {
+    "name": "fortran_nfrpos1_nc4/o_gg.nc",
+    "bytes": 112531
+   }
+  ]
+ },
+ "fortran_guided_initial_state_inversion_20260806": {
+  "total_bytes": 256786,
+  "n_files": 4,
+  "top_files": [
+   {
+    "name": "final_5iter/fortran_guided_initial_state_inversion.png",
+    "bytes": 216143
+   },
+   {
+    "name": "final_5iter/scripts/fortran_guided_initial_state_inversion.py",
+    "bytes": 23427
+   },
+   {
+    "name": "final_5iter/fortran_guided_initial_state_summary.json",
+    "bytes": 16150
+   },
+   {
+    "name": "final_5iter/fortran_guided_initial_state_history.csv",
+    "bytes": 1066
+   }
+  ]
+ },
+ "fortran_reference_1y_2018": {
+  "total_bytes": 295486954,
+  "n_files": 6,
+  "top_files": [
+   {
+    "name": "interval_10d/o_gg.nc",
+    "bytes": 275609903
+   },
+   {
+    "name": "terminal_day365/o_gg.nc",
+    "bytes": 15703963
+   },
+   {
+    "name": "interval_10d/fortran.log",
+    "bytes": 2085351
+   },
+   {
+    "name": "terminal_day365/fortran.log",
+    "bytes": 2084371
+   },
+   {
+    "name": "terminal_day365/input",
+    "bytes": 1684
+   },
+   {
+    "name": "interval_10d/input",
+    "bytes": 1682
+   }
+  ]
+ },
+ "gradient_training_synthetic": {
+  "total_bytes": 147759,
+  "n_files": 3,
+  "top_files": [
+   {
+    "name": "synthetic_training_curve.png",
+    "bytes": 145351
+   },
+   {
+    "name": "synthetic_training_history.csv",
+    "bytes": 2127
+   },
+   {
+    "name": "synthetic_training_summary.json",
+    "bytes": 281
+   }
+  ]
+ },
+ "gradient_validation": {
+  "total_bytes": 293542,
+  "n_files": 3,
+  "top_files": [
+   {
+    "name": "gradient_finite_difference_check.png",
+    "bytes": 290900
+   },
+   {
+    "name": "gradient_validation.csv",
+    "bytes": 1548
+   },
+   {
+    "name": "gradient_validation_summary.json",
+    "bytes": 1094
+   }
+  ]
+ },
+ "initial_states": {
+  "total_bytes": 254170094,
+  "n_files": 2,
+  "top_files": [
+   {
+    "name": "native_20d_terminal_complete.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "native_20d_terminal_state.nc",
+    "bytes": 114181717
+   }
+  ]
+ },
+ "modis_parameter_identifiability_20260807": {
+  "total_bytes": 290063,
+  "n_files": 3,
+  "top_files": [
+   {
+    "name": "combined/modis_parameter_identifiability.png",
+    "bytes": 274189
+   },
+   {
+    "name": "combined/modis_parameter_identifiability_combined.json",
+    "bytes": 14570
+   },
+   {
+    "name": "combined/modis_parameter_identifiability_combined.npz",
+    "bytes": 1304
+   }
+  ]
+ },
+ "modis_validation_1y_2018_20260807": {
+  "total_bytes": 370020442,
+  "n_files": 11,
+  "top_files": [
+   {
+    "name": "surf_modis_observables.nc",
+    "bytes": 228583674
+   },
+   {
+    "name": "restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "comparison/modis_validation_maps.png",
+    "bytes": 974153
+   },
+   {
+    "name": "comparison/modis_validation_timeseries.png",
+    "bytes": 402642
+   },
+   {
+    "name": "comparison/modis_validation_daily.csv",
+    "bytes": 53823
+   },
+   {
+    "name": "comparison/modis_validation_metrics.json",
+    "bytes": 6644
+   }
+  ],
+  "metadata.json": {
+   "nvalid": 97709,
+   "ncol_padded": 97720,
+   "nsteps": 2920,
+   "block": 40
+  },
+  "torch_offline_summary.json": {
+   "nvalid": 97709,
+   "nsteps": 17520,
+   "device": "cuda",
+   "cpu_threads": null,
+   "nan": false,
+   "nonfinite_fields": [],
+   "output_enabled": false,
+   "saved_steps": [],
+   "output_stride": 8,
+   "setup_seconds": 9.312764322385192,
+   "integration_seconds": 1531.028158063069,
+   "modis_targets": "/data/yangjinhui/surf_pytorch/surf_paper/observations/modis_cmg/modis_cmg_2018_cmfd_columns.nc",
+   "modis_observables": "/data/yangjinhui/surf_pytorch/surf_paper/experiments/modis_validation_1y_2018_20260807/surf_modis_observables.nc"
+  }
+ },
+ "multiyear_spinup_2009_2018": {
+  "total_bytes": 127718963,
+  "n_files": 8,
+  "top_files": [
+   {
+    "name": "spinup_2011_terminal_state.npz",
+    "bytes": 25880416
+   },
+   {
+    "name": "spinup_2013_terminal_state.npz",
+    "bytes": 25605989
+   },
+   {
+    "name": "spinup_2012_terminal_state.npz",
+    "bytes": 25542103
+   },
+   {
+    "name": "spinup_2009_terminal_state.npz",
+    "bytes": 25513241
+   },
+   {
+    "name": "spinup_2010_terminal_state.npz",
+    "bytes": 25174391
+   },
+   {
+    "name": "annual_diagnostics.json",
+    "bytes": 1431
+   }
+  ],
+  "annual_diagnostics.json": [
+   {
+    "year": 2009,
+    "steps": 17520,
+    "seconds": 1579.5115469777957,
+    "mean_swe_kg_m2": 4.482777247563863,
+    "max_swe_kg_m2": 1067.561013104483,
+    "mean_snow_fraction": 0.17107179039941048,
+    "max_snow_fraction": 1.0,
+    "mean_soil_water_kg_m2": 616.4137730532569
+   },
+   {
+    "year": 2010,
+    "steps": 17520,
+    "seconds": 1585.138281667605,
+    "mean_swe_kg_m2": 7.35022164205665,
+    "max_swe_kg_m2": 2377.7571091964924,
+    "mean_snow_fraction": 0.19790452864145144,
+    "max_snow_fraction": 1.0,
+    "mean_soil_water_kg_m2": 670.9321179461139
+   },
+   {
+    "year": 2011,
+    "steps": 17520,
+    "seconds": 1590.8719487078488,
+    "mean_swe_kg_m2": 4.30065246686883,
+    "max_swe_kg_m2": 3604.6105071444395,
+    "mean_snow_fraction": 0.111691996771905,
+    "max_snow_fraction": 1.0,
+    "mean_soil_water_kg_m2": 681.9971490626476
+   },
+   {
+    "year": 2012,
+    "steps": 17568,
+    "seconds": 1589.222571353428,
+    "mean_swe_kg_m2": 7.675996288370321,
+    "max_swe_kg_m2": 4945.769590385465,
+    "mean_snow_fraction": 0.2311866076547695,
+    "max_snow_fraction": 1.0,
+    "mean_soil_water_kg_m2": 711.1448181194571
+   },
+   {
+    "year": 2013,
+    "steps": 17520,
+    "seconds": 1695.9968051826581,
+    "mean_swe_kg_m2": 6.357364845065055,
+    "max_swe_kg_m2": 6427.207796722186,
+    "mean_snow_fraction": 0.1178721810259048,
+    "max_snow_fraction": 1.0,
+    "mean_soil_water_kg_m2": 710.705838336336
+   }
+  ]
+ },
+ "regional_parameter_sensitivity_summer": {
+  "total_bytes": 15391,
+  "n_files": 2,
+  "top_files": [
+   {
+    "name": "regional_parameter_sensitivity.npz",
+    "bytes": 14946
+   },
+   {
+    "name": "regional_parameter_sensitivity_summary.json",
+    "bytes": 445
+   }
+  ]
+ },
+ "regional_parameter_sensitivity_winter": {
+  "total_bytes": 15395,
+  "n_files": 2,
+  "top_files": [
+   {
+    "name": "regional_parameter_sensitivity.npz",
+    "bytes": 14945
+   },
+   {
+    "name": "regional_parameter_sensitivity_summary.json",
+    "bytes": 450
+   }
+  ]
+ },
+ "repro_autonomous_1y_rpsfr2_20260807": {
+  "total_bytes": 726425896,
+  "n_files": 12,
+  "top_files": [
+   {
+    "name": "torch_offline_daily.npz",
+    "bytes": 578439554
+   },
+   {
+    "name": "restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "comparison/annual_autonomous_terminal_soil_temperature_maps.png",
+    "bytes": 2869687
+   },
+   {
+    "name": "comparison/annual_autonomous_terminal_soil_water_maps.png",
+    "bytes": 1947846
+   },
+   {
+    "name": "comparison/annual_autonomous_terminal_snow_maps.png",
+    "bytes": 1920182
+   },
+   {
+    "name": "comparison/annual_autonomous_error_growth.png",
+    "bytes": 1021585
+   }
+  ],
+  "metadata.json": {
+   "nvalid": 97709,
+   "ncol_padded": 97720,
+   "nsteps": 2920,
+   "block": 40
+  },
+  "torch_offline_summary.json": {
+   "nvalid": 97709,
+   "nsteps": 17520,
+   "device": "cuda",
+   "cpu_threads": null,
+   "nan": false,
+   "nonfinite_fields": [],
+   "output_enabled": true,
+   "saved_steps": [
+    480,
+    960,
+    1440,
+    1920,
+    2400,
+    2880,
+    3360,
+    3840,
+    4320,
+    4800,
+    5280,
+    5760,
+    6240,
+    6720,
+    7200,
+    7680,
+    8160,
+    8640,
+    9120,
+    9600,
+    10080,
+    10560,
+    11040,
+    11520,
+    12000,
+    12480,
+    12960,
+    13440,
+    13920,
+    14400,
+    14880,
+    15360,
+    15840,
+    16320,
+    16800,
+    17280,
+    17520
+   ],
+   "output_stride": 480,
+   "setup_seconds": 25.670670705847442,
+   "integration_seconds": 1509.1427065636963
+  }
+ },
+ "repro_autonomous_1y_zcvwfix_20260810": {
+  "total_bytes": 726749076,
+  "n_files": 11,
+  "top_files": [
+   {
+    "name": "torch_offline_daily.npz",
+    "bytes": 578439554
+   },
+   {
+    "name": "restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "comparison/annual_autonomous_terminal_soil_temperature_maps.png",
+    "bytes": 2590271
+   },
+   {
+    "name": "comparison/annual_autonomous_terminal_soil_water_maps.png",
+    "bytes": 2533812
+   },
+   {
+    "name": "comparison/annual_autonomous_terminal_snow_maps.png",
+    "bytes": 1939062
+   },
+   {
+    "name": "comparison/annual_autonomous_error_growth.png",
+    "bytes": 1017133
+   }
+  ],
+  "metadata.json": {
+   "nvalid": 97709,
+   "ncol_padded": 97720,
+   "nsteps": 2920,
+   "block": 40
+  },
+  "torch_offline_summary.json": {
+   "nvalid": 97709,
+   "nsteps": 17520,
+   "device": "cuda",
+   "cpu_threads": null,
+   "nan": false,
+   "nonfinite_fields": [],
+   "output_enabled": true,
+   "saved_steps": [
+    480,
+    960,
+    1440,
+    1920,
+    2400,
+    2880,
+    3360,
+    3840,
+    4320,
+    4800,
+    5280,
+    5760,
+    6240,
+    6720,
+    7200,
+    7680,
+    8160,
+    8640,
+    9120,
+    9600,
+    10080,
+    10560,
+    11040,
+    11520,
+    12000,
+    12480,
+    12960,
+    13440,
+    13920,
+    14400,
+    14880,
+    15360,
+    15840,
+    16320,
+    16800,
+    17280,
+    17520
+   ],
+   "output_stride": 480,
+   "setup_seconds": 3.183843933045864,
+   "integration_seconds": 1689.2994529269636,
+   "modis_targets": null,
+   "modis_observables": null
+  }
+ },
+ "repro_performance_current_20260806": {
+  "total_bytes": 3359984107,
+  "n_files": 75,
+  "top_files": [
+   {
+    "name": "cases/cpu_10000_rep01/restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "cases/cpu_10000_rep02/restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "cases/cpu_10000_rep03/restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "cases/cpu_1000_rep01/restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "cases/cpu_1000_rep02/restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "cases/cpu_1000_rep03/restartin.nc",
+    "bytes": 139988377
+   }
+  ]
+ },
+ "seasonal_tair_sensitivity": {
+  "total_bytes": 22219834,
+  "n_files": 36,
+  "top_files": [
+   {
+    "name": "summer_fixed_warmup_24/regional_tair_sensitivity.npz",
+    "bytes": 1449058
+   },
+   {
+    "name": "summer_fixed_warmup_12/regional_tair_sensitivity.npz",
+    "bytes": 1441841
+   },
+   {
+    "name": "summer_warmup_12/regional_tair_sensitivity.npz",
+    "bytes": 1439568
+   },
+   {
+    "name": "final_summer/regional_tair_sensitivity.npz",
+    "bytes": 1433268
+   },
+   {
+    "name": "summer/regional_tair_sensitivity.npz",
+    "bytes": 1433268
+   },
+   {
+    "name": "summer_fixed_warmup_96/regional_tair_sensitivity.npz",
+    "bytes": 1433216
+   }
+  ]
+ },
+ "tmp_zcvw_nofix_10d": {
+  "total_bytes": 155624602,
+  "n_files": 5,
+  "top_files": [
+   {
+    "name": "restartin.nc",
+    "bytes": 139988377
+   },
+   {
+    "name": "torch_offline_daily.npz",
+    "bytes": 15635426
+   },
+   {
+    "name": "run.log",
+    "bytes": 387
+   },
+   {
+    "name": "torch_offline_summary.json",
+    "bytes": 343
+   },
+   {
+    "name": "metadata.json",
+    "bytes": 69
+   }
+  ],
+  "metadata.json": {
+   "nvalid": 97709,
+   "ncol_padded": 97720,
+   "nsteps": 2920,
+   "block": 40
+  },
+  "torch_offline_summary.json": {
+   "nvalid": 97709,
+   "nsteps": 480,
+   "device": "cuda",
+   "cpu_threads": null,
+   "nan": false,
+   "nonfinite_fields": [],
+   "output_enabled": true,
+   "saved_steps": [
+    480
+   ],
+   "output_stride": 480,
+   "setup_seconds": 2.9469229923561215,
+   "integration_seconds": 46.73385323025286,
+   "modis_targets": null,
+   "modis_observables": null
+  }
+ }
+}

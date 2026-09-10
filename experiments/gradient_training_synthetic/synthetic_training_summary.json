@@ -1,0 +1,12 @@
+{
+  "n_steps": 24,
+  "epochs": 20,
+  "vegetation_class": 3,
+  "truth_lai": 3.5,
+  "initial_lai": 7.0,
+  "final_lai": 4.172516550348399,
+  "final_loss": 12.390679725431475,
+  "target_skin_K": 283.25674498742194,
+  "target_evaporation_kg_m2": -3.0651193525914726,
+  "finite": true
+}

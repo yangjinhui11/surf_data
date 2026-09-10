@@ -1,0 +1,24 @@
+\subsection{Decadal autonomous integration}
+\label{sec:multiyear}
+
+The one-year autonomous comparison is extended to ten continuous CMFD years
+(2009--2018, 366-day years included), each year restarted from the terminal
+state of the previous year with the forcing linked continuously across the
+year boundaries. No error growth with lead time occurs. At every annual
+terminal state, soil-temperature relative RMSE stays below
+$8\times10^{-4}$~\% across the decade, soil-water relative RMSE below
+$2.5\times10^{-2}$~\%, and snow-water relative RMSE below
+$3\times10^{-3}$~\%, the same magnitude as the one-year values of
+Table~\ref{tab:annual-autonomous}. The oscillation is the signature of a
+forced dissipative system with threshold-branch amplification: a
+round-off difference can flip a discrete branch decision and produce a finite
+jump, which soil diffusion and the surface-energy feedback then damp,
+rather than chaotic error growth, which is absent by construction because
+the atmospheric forcing is prescribed and identical in the two
+implementations; each field's error peaks in its own threshold-active
+season, and the terminal-error level is a quasi-stationary balance between
+weather-set branch injection and diffusive damping, orders of magnitude
+below the seasonal variability of the fields themselves. The
+terminal-state comparison table, the annual error evolution, and the forcing
+alignment that motivates the exact restart procedure
+are collected in Appendix~\ref{app:multiyear}.

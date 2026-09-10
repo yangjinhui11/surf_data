@@ -1,0 +1,241 @@
+\section{Model background and governing equations}
+\label{sec:model-background}
+
+OpenIFS SURF represents the land surface as a set of independent vertical
+columns coupled to the atmosphere through surface fluxes.  Each column is
+partitioned into surface tiles, so the prognostic state is naturally written as
+tile variables and layer variables,
+\begin{equation}
+  \mathbf{x} = \{\mathbf{T}_{\rm skin}, \mathbf{T}_{\rm soil},
+  \mathbf{W}_{\rm soil}, S_{\rm snow}, f_{\rm snow}, W_{\rm skin},
+  T_{\rm snow}, \rho_{\rm snow}, \alpha_{\rm snow}\}.
+\label{eq:model-state}
+\end{equation}
+Here $\mathbf{T}_{\rm skin}$ is the tile skin temperature, $\mathbf{T}_{\rm
+soil}$ and $\mathbf{W}_{\rm soil}$ are the four-layer soil temperature and
+water stores, $S_{\rm snow}$ is snow water equivalent, $f_{\rm snow}$ is the
+diagnosed snow-cover fraction, $W_{\rm skin}$ is intercepted canopy or skin
+water, and $T_{\rm snow}$, $\rho_{\rm snow}$, and $\alpha_{\rm snow}$ are snow
+temperature, density, and albedo.  Grid-box diagnostics are obtained by tile
+area weighting,
+\begin{equation}
+  \bar{q} = \sum_{i=1}^{N_{\rm tile}} f_i q_i, \qquad
+  \sum_{i=1}^{N_{\rm tile}} f_i = 1,
+\label{eq:model-tilemean}
+\end{equation}
+where $f_i$ is the fractional area of tile $i$.  This tiled structure is
+preserved explicitly, and the snow and wet-skin tile fractions are updated
+after each time step.
+
+\subsection{Atmospheric forcing and offline surface coupling}
+
+In coupled OpenIFS forecasts, SURF receives lower-atmosphere state variables,
+near-surface exchange coefficients, and vertical diffusion boundary quantities
+from the atmospheric physics.  In offline mode these quantities must
+instead be constructed from meteorological forcing.  The forcing vector used by the
+offline PyTorch implementation is
+\begin{equation}
+  \mathbf{y} = \{T_a, q_a, p_s, u_a, v_a, R_{\rm SW}^{\downarrow},
+  R_{\rm LW}^{\downarrow}, P_{\rm rain}, P_{\rm snow}\},
+\label{eq:model-forcing}
+\end{equation}
+with time interpolation or accumulation conventions matching the OpenIFS
+offline configuration.  The surface stress and scalar increments are then closed by
+the roughness-length update and the surface-layer vertical-diffusion
+closure before the land update is invoked.  In compact form the
+surface-layer tendency passed to SURF can be written as
+\begin{equation}
+  \Delta \phi_0 = \mathcal{V}_{\phi}
+  (\phi_a, \phi_s, z_0, C_D, C_H, C_E, |\mathbf{V}|, \Delta t),
+  \qquad \phi \in \{u, v, T, q\},
+\label{eq:model-vdf}
+\end{equation}
+where $\mathcal{V}_{\phi}$ denotes the vertical-diffusion closure used by the
+IFS physics package.  This closure is part of the offline PyTorch model only.
+When SURF is coupled back into a complete atmospheric model, these quantities
+are supplied by the atmospheric vertical-diffusion scheme rather than being
+recomputed within SURF \citep{ECMWFIFSPartIV}.
+
+\subsection{Surface energy balance}
+
+For each active tile, the skin temperature is advanced from a surface energy
+balance,
+\begin{equation}
+  C_i \frac{{\rm d}T_{s,i}}{{\rm d}t}
+  = R_{n,i} - H_i - L_v E_i - G_i - M_i ,
+\label{eq:model-seb}
+\end{equation}
+where $C_i$ is the effective surface heat capacity, $R_{n,i}$ is net radiation,
+$H_i$ is sensible heat flux, $L_vE_i$ is latent heat flux, $G_i$ is the
+conductive heat flux into the soil or snow pack, and $M_i$ is the latent heat
+sink or source associated with melt and freezing.  The net radiation is
+\begin{equation}
+  R_{n,i} = (1-\alpha_i)R_{\rm SW}^{\downarrow}
+  + \epsilon_i R_{\rm LW}^{\downarrow}
+  - \epsilon_i \sigma T_{{\rm rad},i}^{4},
+\label{eq:model-rn}
+\end{equation}
+where $\alpha_i$ is tile albedo, $\epsilon_i$ is emissivity, $\sigma$ is the
+Stefan--Boltzmann constant, and $T_{{\rm rad},i}$ is the radiative skin
+temperature used by the atmospheric model.  The original scheme solves the skin
+temperature implicitly over the coupling time step, which is retained in the
+PyTorch implementation \citep{ViterboBeljaars1995,ECMWFIFSPartIV}.
+
+\subsection{Turbulent exchange}
+
+The turbulent fluxes use a resistance or bulk-transfer form,
+\begin{equation}
+  H_i = \rho_a c_p C_{H,i} |\mathbf{V}|(T_{s,i}-T_a),
+  \qquad
+  E_i = \rho_a C_{E,i} |\mathbf{V}|(q_{s,i}-q_a),
+\label{eq:model-flux}
+\end{equation}
+where $\rho_a$ is air density, $c_p$ is the heat capacity of air, $C_{H,i}$ and
+$C_{E,i}$ are stability- and roughness-dependent exchange coefficients,
+$|\mathbf{V}|$ is the near-surface wind speed, and $q_{s,i}$ and $q_a$ are
+surface and atmospheric specific humidity.  Momentum exchange is represented
+analogously through the drag coefficient $C_D$.  In the tensor formulation
+these algebraic coefficient evaluations are expressed as element-wise
+differentiable maps, while the discrete regime switches for snow, bare soil,
+vegetation, and wet-skin tiles are retained unchanged.
+
+\subsection{Canopy interception and wet skin}
+
+The intercepted water reservoir evolves according to
+\begin{equation}
+  \frac{{\rm d}W_{\rm skin}}{{\rm d}t}
+  = P_{\rm int} - E_{\rm int} - D_{\rm int},
+\label{eq:model-wskin}
+\end{equation}
+where $P_{\rm int}$ is intercepted precipitation, $E_{\rm int}$ is evaporation
+from the wet canopy or skin reservoir, and $D_{\rm int}$ is drainage or excess
+water released once the tile-dependent capacity is exceeded.  The reservoir is
+bounded by a vegetation-dependent maximum storage,
+\begin{equation}
+  0 \le W_{\rm skin} \le W_{\rm skin}^{\max}(LAI, f_{\rm veg}),
+\label{eq:model-wskinmax}
+\end{equation}
+and the wet-skin fraction is diagnosed from $W_{\rm skin}/W_{\rm
+skin}^{\max}$.  This diagnostic affects the tile fractions and therefore feeds
+back onto the turbulent and radiative flux weighting
+\citep{ViterboBeljaars1995,VanDenHurk2000}.
+
+\subsection{Soil heat}
+
+The soil thermal state follows a four-layer diffusion equation,
+\begin{equation}
+  C_k \frac{\partial T_k}{\partial t}
+  =
+  \frac{\partial}{\partial z}
+  \left(\lambda_k \frac{\partial T}{\partial z}\right) + S_k,
+  \qquad k=1,\ldots,4 ,
+\label{eq:model-soilheat}
+\end{equation}
+where $C_k$ is volumetric heat capacity, $\lambda_k$ is effective thermal
+conductivity, and $S_k$ contains surface and phase-change source terms.  In
+finite-volume form,
+\begin{equation}
+  C_k \Delta z_k \frac{T_k^{n+1}-T_k^n}{\Delta t}
+  = F_{k-1/2}^{n+1} - F_{k+1/2}^{n+1} + S_k\Delta z_k,
+\label{eq:model-soilfv}
+\end{equation}
+with conductive flux
+\begin{equation}
+  F_{k+1/2} = \lambda_{k+1/2}
+  \frac{T_{k+1}-T_k}{z_{k+1}-z_k}.
+\label{eq:model-soilflux}
+\end{equation}
+The implicit tridiagonal solve and the layer geometry are preserved from the
+Fortran implementation.
+
+\subsection{Soil hydrology}
+
+HTESSEL updates soil water through infiltration, evapotranspiration,
+percolation, and runoff \citep{Balsamo2009}.  For layer $k$,
+\begin{equation}
+  \Delta z_k \frac{\partial \theta_k}{\partial t}
+  =
+  I_{k-1/2} - I_{k+1/2} - E_k - R_k ,
+\label{eq:model-hydro}
+\end{equation}
+where $\theta_k$ is volumetric soil water, $I$ is vertical liquid-water flux,
+$E_k$ is root-zone water extraction, and $R_k$ is surface or subsurface runoff.
+The prognostic water mass is
+\begin{equation}
+  W_k = \rho_w \Delta z_k \theta_k,
+\label{eq:model-wmass}
+\end{equation}
+and is bounded by soil-type-dependent residual, wilting-point, field-capacity,
+and saturation values.  These bounds keep the update numerically stable and
+preserve the hydrological constraints of the reference model.
+
+\subsection{Snow mass, snow temperature, density, and cover}
+
+The snow pack is represented as a single-layer store with prognostic mass,
+temperature, density, and albedo.  Snow water equivalent obeys
+\begin{equation}
+  \frac{{\rm d}S_{\rm snow}}{{\rm d}t}
+  = P_{\rm snow} - E_{\rm snow} - M_{\rm snow},
+\label{eq:model-swe}
+\end{equation}
+where $P_{\rm snow}$ is snowfall, $E_{\rm snow}$ is sublimation, and
+$M_{\rm snow}$ is melt.  Snow temperature is advanced by an energy balance
+coupled to surface turbulent fluxes, radiation, and the soil heat flux,
+\begin{equation}
+  C_{\rm snow} \frac{{\rm d}T_{\rm snow}}{{\rm d}t}
+  =
+  R_{n,\rm snow} - H_{\rm snow} - L_sE_{\rm snow}
+  - G_{\rm snow} - L_f M_{\rm snow}.
+\label{eq:model-tsnow}
+\end{equation}
+Snow density evolves through compaction and fresh-snow updates, while snow
+albedo is aged and refreshed by snowfall.  The active OpenIFS configuration
+in this study uses the density-scaled snow-cover diagnostic,
+\begin{equation}
+  f_{\rm snow} =
+  \min\left(1,\,10\,S_{\rm snow}/\rho_{\rm snow}\right),
+\label{eq:model-fsnow}
+\end{equation}
+with very small snow fractions clipped to zero for tile-partition stability.
+This relation is central to the interpretation of regional maps because full
+snow cover can occur with moderate SWE when the density-scaled threshold is
+exceeded \citep{ECMWFIFSPartIV,Boussetta2021ECLand}.
+
+\subsection{Differentiable tensor formulation}
+\label{sec:tensor-formulation}
+
+The full time step is expressed as a single nonlinear operator
+\begin{equation}
+  \mathbf{x}^{n+1}
+  =
+  \mathcal{M}_{\Delta t}
+  \left(\mathbf{x}^{n}, \mathbf{y}^{n:n+1}, \mathbf{s}; \boldsymbol{\theta}\right),
+\label{eq:model-step}
+\end{equation}
+where $\mathbf{s}$ contains static land descriptors and $\boldsymbol{\theta}$
+contains physical parameters or lookup-table values.  Most of the constituent
+updates are element-wise differentiable maps.  The scheme, however, is not a
+smooth dynamical system: rain--snow partitioning, tile activation, soil-moisture
+bounds, wet-skin capacity overflow, freezing thresholds, and snow-cover
+clipping are conditional statements that partition the
+state space into regimes with distinct governing expressions.
+
+The translation treats this structure as follows: every branch
+is kept exactly as in the reference, and none is smoothed, relaxed, or
+replaced by a differentiable surrogate.  The resulting operator is
+differentiable almost everywhere, and reverse-mode differentiation through
+it returns the exact derivative of the realized computation on the active
+branch; at a regime crossing the derivative is the one-sided derivative of
+that branch, a local linearization of the switched dynamics.  This choice
+has a methodological consequence: the differentiated operator is the same
+operator whose numerical equivalence is verified in
+Sect.~\ref{sec:fortran-torch-equivalence}, so any gradient-based inference
+refers to the discrete IFS physics itself rather than to a smoothed
+reconstruction of it.  Smoothing the switches would yield better-behaved
+gradients but would break the equivalence with the reference solution.  The
+verification of Sect.~\ref{sec:gradient-calibration} shows that the
+retained branches do not degrade the derivatives: multi-step reverse-mode
+derivatives agree with centred finite differences to within
+$4\times10^{-4}$ relative error, and the fraction of columns whose local
+response is dominated by a regime transition is mapped and reported
+(0.19--4.17\,\% depending on season) rather than omitted.
