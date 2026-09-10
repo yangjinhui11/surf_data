@@ -34,8 +34,9 @@ publication; they are available from the corresponding author upon request.
 ## Large files (not in this repository)
 
 The following files exceed GitHub's 100 MB per-file limit and are held in the
-full project archive (Zenodo DOI to be assigned upon upload) and on the project
-server; all are regenerable with the accompanying software:
+full project archive at the Science Data Bank
+(https://doi.org/10.57760/sciencedb.0125b); all are regenerable with the
+accompanying software:
 
 - `initial_state/restartin_era5land_2005.nc` (134 MB) — ERA5-Land 2005 state
   mapped onto the 97,709-column CMFD domain (spin-up input).
