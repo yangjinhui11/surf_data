@@ -23,7 +23,8 @@ area weighting,
   \sum_{i=1}^{N_{\rm tile}} f_i = 1,
 \label{eq:model-tilemean}
 \end{equation}
-where $f_i$ is the fractional area of tile $i$.  This tiled structure is
+where $f_i$ is the fractional area of tile $i$
+\citep{ViterboBeljaars1995,Balsamo2009,Boussetta2021ECLand}.  This tiled structure is
 preserved explicitly, and the snow and wet-skin tile fractions are updated
 after each time step.
 
@@ -42,16 +43,8 @@ offline PyTorch implementation is
 with time interpolation or accumulation conventions matching the OpenIFS
 offline configuration.  The surface stress and scalar increments are then closed by
 the roughness-length update and the surface-layer vertical-diffusion
-closure before the land update is invoked.  In compact form the
-surface-layer tendency passed to SURF can be written as
-\begin{equation}
-  \Delta \phi_0 = \mathcal{V}_{\phi}
-  (\phi_a, \phi_s, z_0, C_D, C_H, C_E, |\mathbf{V}|, \Delta t),
-  \qquad \phi \in \{u, v, T, q\},
-\label{eq:model-vdf}
-\end{equation}
-where $\mathcal{V}_{\phi}$ denotes the vertical-diffusion closure used by the
-IFS physics package.  This closure is part of the offline PyTorch model only.
+closure of the IFS physics package before the land update is invoked.
+This closure is part of the offline PyTorch model only.
 When SURF is coupled back into a complete atmospheric model, these quantities
 are supplied by the atmospheric vertical-diffusion scheme rather than being
 recomputed within SURF \citep{ECMWFIFSPartIV}.
@@ -83,7 +76,8 @@ PyTorch implementation \citep{ViterboBeljaars1995,ECMWFIFSPartIV}.
 
 \subsection{Turbulent exchange}
 
-The turbulent fluxes use a resistance or bulk-transfer form,
+The turbulent fluxes use a resistance or bulk-transfer form
+\citep{Louis1979,ECMWFIFSPartIV},
 \begin{equation}
   H_i = \rho_a c_p C_{H,i} |\mathbf{V}|(T_{s,i}-T_a),
   \qquad
@@ -110,11 +104,8 @@ The intercepted water reservoir evolves according to
 where $P_{\rm int}$ is intercepted precipitation, $E_{\rm int}$ is evaporation
 from the wet canopy or skin reservoir, and $D_{\rm int}$ is drainage or excess
 water released once the tile-dependent capacity is exceeded.  The reservoir is
-bounded by a vegetation-dependent maximum storage,
-\begin{equation}
-  0 \le W_{\rm skin} \le W_{\rm skin}^{\max}(LAI, f_{\rm veg}),
-\label{eq:model-wskinmax}
-\end{equation}
+bounded by a vegetation-dependent maximum storage $W_{\rm skin}^{\max}(LAI,
+f_{\rm veg})$,
 and the wet-skin fraction is diagnosed from $W_{\rm skin}/W_{\rm
 skin}^{\max}$.  This diagnostic affects the tile fractions and therefore feeds
 back onto the turbulent and radiative flux weighting
@@ -122,7 +113,8 @@ back onto the turbulent and radiative flux weighting
 
 \subsection{Soil heat}
 
-The soil thermal state follows a four-layer diffusion equation,
+The soil thermal state follows a four-layer diffusion equation
+\citep{ViterboBeljaars1995,ECMWFIFSPartIV},
 \begin{equation}
   C_k \frac{\partial T_k}{\partial t}
   =
@@ -132,21 +124,11 @@ The soil thermal state follows a four-layer diffusion equation,
 \label{eq:model-soilheat}
 \end{equation}
 where $C_k$ is volumetric heat capacity, $\lambda_k$ is effective thermal
-conductivity, and $S_k$ contains surface and phase-change source terms.  In
-finite-volume form,
-\begin{equation}
-  C_k \Delta z_k \frac{T_k^{n+1}-T_k^n}{\Delta t}
-  = F_{k-1/2}^{n+1} - F_{k+1/2}^{n+1} + S_k\Delta z_k,
-\label{eq:model-soilfv}
-\end{equation}
-with conductive flux
-\begin{equation}
-  F_{k+1/2} = \lambda_{k+1/2}
-  \frac{T_{k+1}-T_k}{z_{k+1}-z_k}.
-\label{eq:model-soilflux}
-\end{equation}
-The implicit tridiagonal solve and the layer geometry are preserved from the
-Fortran implementation.
+conductivity, and $S_k$ contains surface and phase-change source terms.  The
+equation is discretized in finite-volume form with inter-layer conductive
+fluxes $\lambda_{k+1/2}(T_{k+1}-T_k)/(z_{k+1}-z_k)$; the implicit tridiagonal
+solve and the layer geometry are preserved from the reference implementation
+\citep{ViterboBeljaars1995,ECMWFIFSPartIV}.
 
 \subsection{Soil hydrology}
 
@@ -160,35 +142,26 @@ percolation, and runoff \citep{Balsamo2009}.  For layer $k$,
 \end{equation}
 where $\theta_k$ is volumetric soil water, $I$ is vertical liquid-water flux,
 $E_k$ is root-zone water extraction, and $R_k$ is surface or subsurface runoff.
-The prognostic water mass is
-\begin{equation}
-  W_k = \rho_w \Delta z_k \theta_k,
-\label{eq:model-wmass}
-\end{equation}
-and is bounded by soil-type-dependent residual, wilting-point, field-capacity,
+The prognostic water mass $W_k = \rho_w \Delta z_k \theta_k$
+is bounded by soil-type-dependent residual, wilting-point, field-capacity,
 and saturation values.  These bounds keep the update numerically stable and
 preserve the hydrological constraints of the reference model.
 
 \subsection{Snow mass, snow temperature, density, and cover}
 
 The snow pack is represented as a single-layer store with prognostic mass,
-temperature, density, and albedo.  Snow water equivalent obeys
+temperature, density, and albedo
+\citep{ViterboBeljaars1995,Dutra2010Snow,ECMWFIFSPartIV}.  Snow water equivalent obeys
 \begin{equation}
   \frac{{\rm d}S_{\rm snow}}{{\rm d}t}
   = P_{\rm snow} - E_{\rm snow} - M_{\rm snow},
 \label{eq:model-swe}
 \end{equation}
 where $P_{\rm snow}$ is snowfall, $E_{\rm snow}$ is sublimation, and
-$M_{\rm snow}$ is melt.  Snow temperature is advanced by an energy balance
-coupled to surface turbulent fluxes, radiation, and the soil heat flux,
-\begin{equation}
-  C_{\rm snow} \frac{{\rm d}T_{\rm snow}}{{\rm d}t}
-  =
-  R_{n,\rm snow} - H_{\rm snow} - L_sE_{\rm snow}
-  - G_{\rm snow} - L_f M_{\rm snow}.
-\label{eq:model-tsnow}
-\end{equation}
-Snow density evolves through compaction and fresh-snow updates, while snow
+$M_{\rm snow}$ is melt.  Snow temperature is advanced by the same surface
+energy balance as Eq.~(\ref{eq:model-seb}), written on the snow tile with the
+snow-pack heat capacity $C_{\rm snow}$ and the melt energy sink $L_f
+M_{\rm snow}$.  Snow density evolves through compaction and fresh-snow updates, while snow
 albedo is aged and refreshed by snowfall.  The active OpenIFS configuration
 in this study uses the density-scaled snow-cover diagnostic,
 \begin{equation}
