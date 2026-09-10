@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -45,6 +45,13 @@ Dai, Y., Zeng, X., Dickinson, R.~E., Baker, I., Bonan, G.~B., Bosilovich,
 Dai, Y., Dickinson, R.~E., and Wang, Y.-P.: A two-big-leaf model for canopy
   temperature, photosynthesis, and stomatal conductance, Journal of Climate,
   17, 2281--2299, \doi{10.1175/1520-0442(2004)017<2281:ATMFCT>2.0.CO;2}, 2004.
+
+\bibitem[{Dutra et~al.(2010)Dutra, Balsamo, Viterbo, Miranda, Beljaars,
+  Sch{\"a}r, and Elder}]{Dutra2010Snow}
+Dutra, E., Balsamo, G., Viterbo, P., Miranda, P. M.~A., Beljaars, A.,
+  Sch{\"a}r, C., and Elder, K.: An improved snow scheme for the {ECMWF} land
+  surface model: {Description} and offline validation, Journal of
+  Hydrometeorology, 11, 899--916, \doi{10.1175/2010JHM1249.1}, 2010.
 
 \bibitem[{{ECMWF}(2024)}]{ECMWFIFSPartIV}
 {ECMWF}: IFS Documentation, Part IV: Physical Processes,
@@ -105,6 +112,10 @@ Lapillonne, X., Hupp, D., Gessler, F., Walser, A., Pauling, A., Lauber, A.,
   Sch{\"a}ttler, U., Cherkas, V., and Sawyer, W.: Operational numerical weather
   prediction with {ICON} on {GPUs}, Geoscientific Model Development, 19,
   755--772, \doi{10.5194/gmd-19-755-2026}, 2026.
+
+\bibitem[{Louis(1979)}]{Louis1979}
+Louis, J.-F.: A parametric model of vertical eddy fluxes in the atmosphere,
+  Boundary-Layer Meteorology, 17, 187--202, \doi{10.1007/BF00117978}, 1979.
 
 \bibitem[{Niu et~al.(2011)Niu, Yang, Mitchell, Chen, Ek, Barlage, Kumar,
   Manning, Niyogi, Rosero, Tewari, and Xia}]{Niu2011NoahMP}
