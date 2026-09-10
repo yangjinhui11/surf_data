@@ -36,45 +36,22 @@ switch unsmoothed, so the differentiated operator is the verified one. It
 matches the reference at every duration tested: a 30-day controlled
 integration of the 97,709-column CMFD domain ends at surface-temperature and
 snow-water-equivalent RMSE of $6.90\times10^{-6}$~K and
-$1.05\times10^{-6}$~kg~m$^{-2}$; a one-year autonomous integration holds
-terminal relative errors below $5.1\times10^{-3}$~\% with the annual water
-budget closed to $5.90\times10^{-12}$~kg~m$^{-2}$; and ten successively
-restarted years (2009--2018) show no error growth. CUDA-graph execution on
+$1.05\times10^{-6}$~kg~m$^{-2}$, a one-year autonomous integration holds
+terminal relative errors below $5.1\times10^{-3}$~\%, and ten successively
+restarted years (2009--2018) show no error growth; CUDA-graph execution on
 an NVIDIA A100 sustains a 3.8-fold speed-up over the 32-thread Fortran
-reference.
-
-The value of differentiability, however, is not speed but closing the loop
-between satellite observations and the process formulation, with a control
-at every step. Against independent Terra MODIS observations the
-configuration reproduces nighttime land surface temperature (bias 0.66~K)
-but carries a $-6.4$~K daytime cold bias. Using reverse-mode derivatives
-verified against finite differences to $4\times10^{-4}$, we decompose this
-bias under the same observations. An observation-space information analysis
-identifies the well-conditioned training season (condition number 67 in
-autumn--winter versus $2.96\times10^{5}$ in spring--summer), and a
-synthetic-twin control under the identical operator and optimizer recovers
-imposed parameters to 0.3--1.1~\%; with the inversion machinery so
-certified, the same calibration against real observations removes only about
-0.5~K of the 5.5--8.3~K daytime offset: a bound on the tested eight-scale
-control space, not a general verdict on parameter optimization, which
-remains complementary to the structural correction developed next.
-Diagnosed from the forcing side, the residual bias projects onto a
-ten-control pseudo-forcing profile: an $8.1$~K peak-to-peak deficit of
-near-surface diurnal amplitude whose sign changes within the day, a
-functional form that no time-constant parameter scale can represent. Read
-as a diagnosis of the offline atmosphere--surface exchange rather than as a
-correction of the forcing data, the profile guides the design and
-calibration of a two-timescale surface-layer closure. State-space verification rejects the freely trained optimum, which
-resonates with a dawn-time sensible-heat limit cycle invisible to
-quality-controlled observation scores; the adopted configuration rests on
-the verified stability boundary and removes 67--84~\% of the daytime bias
-(calibration to held-out) in every month of the year. Expressed only in the
-surface sensible heat flux and the exchange air temperature, the closure
-ports back to the Fortran driver without re-tuning, and a Fortran-guided
-retrieval reduces a prescribed 5.0~kg~m$^{-2}$ soil-water bias to
-0.170~kg~m$^{-2}$. These results show how a differentiable land surface
-moves evaluation beyond numerical fidelity to observation-constrained
-process improvement.
+reference. Against independent Terra MODIS observations, the configuration
+reproduces nighttime land surface temperature (bias 0.66~K) but carries a
+$-6.4$~K daytime cold bias. Decomposing this bias with reverse-mode
+derivatives verified against finite differences to $4\times10^{-4}$, we
+find that eight global parameter scales explain at most 0.5~K of it, that
+the remainder is a structural $8.1$~K peak-to-peak deficit of near-surface
+diurnal amplitude, and that a two-timescale surface-layer closure designed
+from this diagnosis and verified in state space removes 67--84~\% of the
+bias (calibration to held-out) in every month of the year and ports back to
+the Fortran driver without re-tuning. These results show how a
+differentiable land surface moves evaluation beyond numerical fidelity to
+observation-constrained process improvement.
 \end{abstract}
 
 \copyrightstatement{TEXT}
@@ -304,10 +281,9 @@ parameter-estimation studies.
 \codedataavailability{
 The common spun-up initial state, the observation subsets, the Fortran
 reference outputs, the archived evaluation products behind every reported
-number, and the per-experiment manifests are collected in a project archive
-deposited at
-\url{https://doi.org/10.5281/zenodo.XXXXXXX} (DOI to be assigned upon
-upload). The source code of the PyTorch implementation and the experiment
+number, and the per-experiment manifests are collected in the accompanying
+data package \citep{Yang2026SurfData} at the Science Data Bank,
+\url{https://doi.org/10.57760/sciencedb.0125b}. The source code of the PyTorch implementation and the experiment
 scripts are available from the corresponding author upon request and will be
 released publicly upon publication. The raw driving datasets are public and
 are given by reference: CMFD

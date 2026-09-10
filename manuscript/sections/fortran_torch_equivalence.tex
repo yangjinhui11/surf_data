@@ -22,7 +22,9 @@ physics time step is 1800~s and all prognostic calculations use double
 precision. The controlled experiment records the Fortran-generated
 roughness, surface-layer exchange, and radiation inputs at every step; the
 PyTorch integration consumes those records without constructing an independent
-atmospheric closure.
+atmospheric closure. The initial states, observation subsets, reference
+outputs, and archived evaluation products of every experiment reported below
+are collected in the accompanying data package \citep{Yang2026SurfData}.
 
 \paragraph{Common initial state.} Unless stated otherwise, every experiment
 in this paper, the controlled and autonomous equivalence experiments of

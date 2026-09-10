@@ -1,0 +1,199 @@
+\begin{thebibliography}{28}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{https://doi.org/\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{https://doi.org/\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Balsamo et~al.(2009)Balsamo, Viterbo, Beljaars, van~den Hurk,
+  Hirschi, Betts, and Scipal}]{Balsamo2009}
+Balsamo, G., Viterbo, P., Beljaars, A., van~den Hurk, B., Hirschi, M., Betts,
+  A.~K., and Scipal, K.: A revised hydrology for the ECMWF model: Verification
+  from field site to terrestrial water storage and impact in the Integrated
+  Forecast System, Journal of Hydrometeorology, 10, 623--643,
+  \doi{10.1175/2008JHM1068.1}, 2009.
+
+\bibitem[{Boussetta et~al.(2021)Boussetta, Balsamo, Arduini, Dutra, McNorton,
+  Choulga, Agust{\'i}-Panareda, Beljaars, Wedi, Mu{\~n}oz-Sabater, De~Rosnay,
+  Sandu, Hadade, Carver, Mazzetti, Prudhomme, Yamazaki, and
+  Zsoter}]{Boussetta2021ECLand}
+Boussetta, S., Balsamo, G., Arduini, G., Dutra, E., McNorton, J., Choulga, M.,
+  Agust{\'i}-Panareda, A., Beljaars, A., Wedi, N., Mu{\~n}oz-Sabater, J.,
+  De~Rosnay, P., Sandu, I., Hadade, I., Carver, G., Mazzetti, C., Prudhomme,
+  C., Yamazaki, D., and Zsoter, E.: {ECLand}: The {ECMWF} Land Surface
+  Modelling System, Atmosphere, 12, 723, \doi{10.3390/atmos12060723}, 2021.
+
+\bibitem[{Dahm et~al.(2023)Dahm, Davis, Deconinck, Elbert, George, McGibbon,
+  Wicky, Wu, Kung, Ben-Nun, Harris, Groner, and Fuhrer}]{Dahm2023Pace}
+Dahm, J., Davis, E., Deconinck, F., Elbert, O., George, R., McGibbon, J.,
+  Wicky, T., Wu, E., Kung, C., Ben-Nun, T., Harris, L., Groner, L., and Fuhrer,
+  O.: Pace {v0.2}: a Python-based performance-portable atmospheric model,
+  Geoscientific Model Development, 16, 2719--2736,
+  \doi{10.5194/gmd-16-2719-2023}, 2023.
+
+\bibitem[{Dai et~al.(2003)Dai, Zeng, Dickinson, Baker, Bonan, Bosilovich,
+  Denning, Dirmeyer, Houser, Niu, Oleson, Schlosser, and Yang}]{Dai2003CoLM}
+Dai, Y., Zeng, X., Dickinson, R.~E., Baker, I., Bonan, G.~B., Bosilovich,
+  M.~G., Denning, A.~S., Dirmeyer, P.~A., Houser, P.~R., Niu, G., Oleson,
+  K.~W., Schlosser, C.~A., and Yang, Z.-L.: The Common Land Model, Bulletin of
+  the American Meteorological Society, 84, 1013--1023,
+  \doi{10.1175/BAMS-84-8-1013}, 2003.
+
+\bibitem[{Dai et~al.(2004)Dai, Dickinson, and Wang}]{Dai2004TwoBigLeaf}
+Dai, Y., Dickinson, R.~E., and Wang, Y.-P.: A two-big-leaf model for canopy
+  temperature, photosynthesis, and stomatal conductance, Journal of Climate,
+  17, 2281--2299, \doi{10.1175/1520-0442(2004)017<2281:ATMFCT>2.0.CO;2}, 2004.
+
+\bibitem[{{ECMWF}(2024)}]{ECMWFIFSPartIV}
+{ECMWF}: IFS Documentation, Part IV: Physical Processes,
+  \url{https://www.ecmwf.int/en/publications/ifs-documentation}, accessed
+  2026-07-21, 2024.
+
+\bibitem[{Gelbrecht et~al.(2023)Gelbrecht, Boers, and Kurths}]{Gelbrecht2023}
+Gelbrecht, M., Boers, N., and Kurths, J.: Differentiable programming for Earth
+  system modeling, Geoscientific Model Development, 16, 3123--3135,
+  \doi{10.5194/gmd-16-3123-2023}, 2023.
+
+\bibitem[{Hall and Riggs(2021)}]{Hall2021MOD10C1}
+Hall, D. and Riggs, G.: {MODIS/Terra} Snow Cover Daily {L3} Global 0.05Deg
+  {CMG}, Version 61, \doi{10.5067/MODIS/MOD10C1.061}, 2021.
+
+\bibitem[{Haverd et~al.(2018)Haverd, Smith, Nieradzik, Briggs, Woodgate,
+  Trudinger, Canadell, and Cuntz}]{Haverd2018CABLE}
+Haverd, V., Smith, B., Nieradzik, L., Briggs, P.~R., Woodgate, W., Trudinger,
+  C.~M., Canadell, J.~G., and Cuntz, M.: A new version of the {CABLE} land
+  surface model ({Subversion} revision r4601) incorporating new land management
+  options applied at regional and global scale, Geoscientific Model
+  Development, 11, 2995--3026, \doi{10.5194/gmd-11-2995-2018}, 2018.
+
+\bibitem[{He et~al.(2020)He, Yang, Tang, Lu, Qin, Chen, and Li}]{He2020CMFD}
+He, J., Yang, K., Tang, W., Lu, H., Qin, J., Chen, Y., and Li, X.: The first
+  high-resolution meteorological forcing dataset for land process studies over
+  China, Scientific Data, 7, 25, \doi{10.1038/s41597-020-0369-y}, 2020.
+
+\bibitem[{Jiang et~al.(2025)Jiang, Kidger, Bandai, Baldocchi, Liu, Xiao,
+  Steefel, and Chen}]{Jiang2025JAXCanVeg}
+Jiang, P., Kidger, P., Bandai, T., Baldocchi, D., Liu, H., Xiao, Y., Steefel,
+  C., and Chen, X.: {JAX-CanVeg}: A Differentiable Land Surface Model, Water
+  Resources Research, 61, e2024WR038\,116, \doi{10.1029/2024WR038116}, 2025.
+
+\bibitem[{Kochkov et~al.(2024)Kochkov, Yuval, Pathak, Bi, Greenberg
+  et~al.}]{Kochkov2024NeuralGCM}
+Kochkov, D., Yuval, J., Pathak, J., Bi, Z., Greenberg, M., et~al.: Neural
+  general circulation models for weather and climate, Nature, 637, 84--92,
+  \doi{10.1038/s41586-024-07744-y}, 2024.
+
+\bibitem[{Lahlou et~al.(2026)Lahlou, Hawkins, and Gentine}]{Lahlou2026CLMml}
+Lahlou, A., Hawkins, L., and Gentine, P.: Systematic {LLM} translation of
+  legacy scientific code to differentiable frameworks: application to a land
+  surface model, arXiv preprint arXiv:2606.07681, 2026.
+
+\bibitem[{Lapillonne et~al.(2026)Lapillonne, Hupp, Gessler, Walser, Pauling,
+  Lauber, Cumming, Osuna, M{\"u}ller, Merker, Leuenberger, Leutwyler, Alexeev,
+  Vollenweider, Van~Parys, Jucker, Jansing, Arpagaus, Induni, Jacob, Kraushaar,
+  J{\"a}hn, Stellio, Fuhrer, Baumann, Steiner, Kaufmann, Dietlicher,
+  M{\"u}ller, Kosukhin, Schulthess, Sch{\"a}ttler, Cherkas, and
+  Sawyer}]{Lapillonne2026ICON}
+Lapillonne, X., Hupp, D., Gessler, F., Walser, A., Pauling, A., Lauber, A.,
+  Cumming, B., Osuna, C., M{\"u}ller, C., Merker, C., Leuenberger, D.,
+  Leutwyler, D., Alexeev, D., Vollenweider, G., Van~Parys, G., Jucker, J.,
+  Jansing, L., Arpagaus, M., Induni, M., Jacob, M., Kraushaar, M., J{\"a}hn,
+  M., Stellio, M., Fuhrer, O., Baumann, P., Steiner, P., Kaufmann, P.,
+  Dietlicher, R., M{\"u}ller, R., Kosukhin, S., Schulthess, T.~C.,
+  Sch{\"a}ttler, U., Cherkas, V., and Sawyer, W.: Operational numerical weather
+  prediction with {ICON} on {GPUs}, Geoscientific Model Development, 19,
+  755--772, \doi{10.5194/gmd-19-755-2026}, 2026.
+
+\bibitem[{Niu et~al.(2011)Niu, Yang, Mitchell, Chen, Ek, Barlage, Kumar,
+  Manning, Niyogi, Rosero, Tewari, and Xia}]{Niu2011NoahMP}
+Niu, G.-Y., Yang, Z.-L., Mitchell, K.~E., Chen, F., Ek, M.~B., Barlage, M.,
+  Kumar, A., Manning, K., Niyogi, D., Rosero, E., Tewari, M., and Xia, Y.: The
+  community {Noah} land surface model with multiparameterization options
+  ({Noah-MP}), Journal of Geophysical Research, 116, D12\,109,
+  \doi{10.1029/2010JD015139}, 2011.
+
+\bibitem[{Oleson et~al.(2010)Oleson, Lawrence, Bonan, Flanner, Kluzek,
+  Lawrence, Levis, Swenson, Thornton et~al.}]{Oleson2010CLM}
+Oleson, K.~W., Lawrence, D.~M., Bonan, G.~B., Flanner, M.~G., Kluzek, E.,
+  Lawrence, P.~J., Levis, S., Swenson, S.~C., Thornton, P.~E., et~al.:
+  Technical description of version 4.0 of the {Community Land Model} ({CLM}),
+  Ncar technical note ncar/tn-478+str, NCAR, \doi{10.5065/D6FB50WZ}, 2010.
+
+\bibitem[{Raoult et~al.(2026)Raoult, Pinnington, Santa~Cruz, Pinault, Raoult,
+  Zelenka, Arduini, Balsamo, Boussetta, Chantry, de~Rosnay, Dueben, and
+  R{\"u}diger}]{Raoult2026aiLand}
+Raoult, N., Pinnington, E., Santa~Cruz, M., Pinault, F., Raoult, B., Zelenka,
+  N., Arduini, G., Balsamo, G., Boussetta, S., Chantry, M., de~Rosnay, P.,
+  Dueben, P., and R{\"u}diger, C.: aiLand {v1}: {P}hysics-{B}ased {L}and
+  {S}urface {E}mulator with {O}bservational {F}ine-{T}uning, EGUsphere, 2026,
+  1--23, \doi{10.5194/egusphere-2026-3620}, 2026.
+
+\bibitem[{Riggs et~al.(2017)Riggs, Hall, and Rom{\'a}n}]{Riggs2017MODISSnow}
+Riggs, G.~A., Hall, D.~K., and Rom{\'a}n, M.~O.: Overview of {NASA}'s {MODIS}
+  and Visible Infrared Imaging Radiometer Suite ({VIIRS}) snow-cover Earth
+  System Data Records, Earth System Science Data, 9, 765--777,
+  \doi{10.5194/essd-9-765-2017}, 2017.
+
+\bibitem[{Shen et~al.(2023)Shen, Appling, Gentine, Bandai, Gupta, Tartakovsky,
+  Baity-Jesi, Fenicia, Kifer, Li, Liu, Ren, and Zheng}]{Shen2023}
+Shen, C., Appling, A.~P., Gentine, P., Bandai, T., Gupta, H., Tartakovsky, A.,
+  Baity-Jesi, M., Fenicia, F., Kifer, D., Li, L., Liu, X., Ren, W., and Zheng,
+  Y.: Differentiable modelling to unify machine learning and physical models
+  for geosciences, Nature Reviews Earth \& Environment,
+  \doi{10.1038/s43017-023-00450-9}, 2023.
+
+\bibitem[{Tian et~al.(2026)Tian, Yu, Zhao, Cao, Yi, Xu, and Nan}]{NoahPy2026}
+Tian, W., Yu, H., Zhao, S., Cao, Y., Yi, W., Xu, J., and Nan, Z.: {NoahPy}: a
+  differentiable {Noah} land surface model for simulating permafrost
+  thermo-hydrology, Geoscientific Model Development, 19, 57--72,
+  \doi{10.5194/gmd-19-57-2026}, 2026.
+
+\bibitem[{van~den Hurk et~al.(2000)van~den Hurk, Viterbo, Beljaars, and
+  Betts}]{VanDenHurk2000}
+van~den Hurk, B. J. J.~M., Viterbo, P., Beljaars, A. C.~M., and Betts, A.~K.:
+  Offline Validation of the Revised {ECMWF} Land Surface Scheme, Journal of
+  Hydrometeorology, 1, 361--380,
+  \doi{10.1175/1525-7541(2000)001<0361:OVOTRE>2.0.CO;2}, 2000.
+
+\bibitem[{Viterbo and Beljaars(1995)}]{ViterboBeljaars1995}
+Viterbo, P. and Beljaars, A. C.~M.: An Improved Land Surface Parameterization
+  Scheme in the ECMWF Model and Its Validation, Journal of Climate, 8,
+  2716--2748, \doi{10.1175/1520-0442(1995)008<2716:AILSPS>2.0.CO;2}, 1995.
+
+\bibitem[{Wan(2014)}]{Wan2014MODISLST}
+Wan, Z.: New refinements and validation of the collection-6 {MODIS}
+  land-surface temperature/emissivity product, Remote Sensing of Environment,
+  140, 36--45, \doi{10.1016/j.rse.2013.08.027}, 2014.
+
+\bibitem[{Wan et~al.(2021)Wan, Hook, and Hulley}]{Wan2021MOD11C1}
+Wan, Z., Hook, S., and Hulley, G.: {MODIS/Terra} Land Surface
+  Temperature/Emissivity Daily {L3} Global 0.05Deg {CMG V061},
+  \doi{10.5067/MODIS/MOD11C1.061}, 2021.
+
+\bibitem[{Wiltshire et~al.(2020)Wiltshire, Duran~Rojas, Edwards, Gedney,
+  Harper, Hartley, Hendry, Robertson, and Smout-Day}]{Wiltshire2020JULES}
+Wiltshire, A.~J., Duran~Rojas, M.~C., Edwards, J.~M., Gedney, N., Harper,
+  A.~B., Hartley, A.~J., Hendry, M.~A., Robertson, E., and Smout-Day, K.:
+  {JULES-GL7}: the {Global Land} configuration of the {Joint UK Land
+  Environment Simulator} version 7.0 and 7.2, Geoscientific Model Development,
+  13, 483--505, \doi{10.5194/gmd-13-483-2020}, 2020.
+
+\bibitem[{Yang et~al.(2026)Yang, Zhao, Lin, Li, and Song}]{Yang2026SurfData}
+Yang, J., Zhao, W., Lin, X., Li, C., and Song, J.: Data package for ``{A}
+  differentiable {PyTorch} implementation of the {OpenIFS} land-surface
+  physics'': initial states, observation subsets, {Fortran} reference outputs,
+  and archived experiment results, \doi{10.57760/sciencedb.0125b}, 2026.
+
+\bibitem[{Yuan and Dai(2025)}]{YuanDai2025CoLM}
+Yuan, H. and Dai, Y.: Description of the Common Land Model ({CoLM} 2024), Sun
+  Yat-sen University Press, Guangzhou, China, ISBN 978-7-306-08654-9, 2025.
+
+\bibitem[{Yuval et~al.(2026)Yuval, Langmore, Kochkov, Hoyer
+  et~al.}]{Yuval2026Precip}
+Yuval, J., Langmore, I., Kochkov, D., Hoyer, S., et~al.: Neural general
+  circulation models for modeling precipitation, Science Advances, 12,
+  eadv6891, \doi{10.1126/sciadv.adv6891}, 2026.
+
+\end{thebibliography}
